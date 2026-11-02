@@ -1,0 +1,3 @@
+import {DatabaseSync} from 'node:sqlite';import fs from 'node:fs';
+const sql=new DatabaseSync(':memory:');for(const file of fs.readdirSync('drizzle').filter(f=>f.endsWith('.sql')).sort())sql.exec(fs.readFileSync('drizzle/'+file,'utf8'));
+export const DB={prepare(query){let args=[];return {bind(...v){args=v;return this},execute(){const r=sql.prepare(query).run(...args);return {meta:{changes:Number(r.changes)}}},async run(){return this.execute()},async all(){return {results:sql.prepare(query).all(...args)}},async first(){return sql.prepare(query).get(...args)||null}}},async batch(statements){sql.exec('BEGIN');try{const result=statements.map(s=>s.execute());sql.exec('COMMIT');return result}catch(e){sql.exec('ROLLBACK');throw e}}};

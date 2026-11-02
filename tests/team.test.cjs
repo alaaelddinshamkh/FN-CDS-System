@@ -1,0 +1,32 @@
+const assert=require('node:assert/strict');
+(async()=>{const {teamApi}=await import('../worker/team.mjs'),{DB}=await import('../scripts/d1-preview.mjs');
+const req=(path,method='GET',data,user='admin',origin='https://fn.test')=>new Request('https://fn.test/api/team/'+path,{method,headers:{...(user?{'oai-authenticated-user-id':user}:{}),Origin:origin,'Content-Type':'application/json'},body:data?JSON.stringify(data):undefined});
+async function call(path,method='GET',data,user='admin'){const r=await teamApi(req(path,method,data,user),{DB});return {status:r.status,data:await r.json()}}
+assert.equal((await call('session','GET',null,'')).status,401);
+assert.equal((await teamApi(req('workspaces','POST',{},'admin','https://evil.test'),{DB})).status,403);
+let r=await call('workspaces','POST',{name:'Synthetic training hospital',label:'Demo administrator',syntheticOnly:true});assert.equal(r.status,201);const team=r.data.id,q='?workspace='+team;
+assert.equal((await call('workspace'+q,'GET',null,'outsider')).status,403);
+for(const role of ['nurse','physician','pharmacist']){const inv=await call('invite'+q,'POST',{role});assert.equal(inv.status,201);const join=await call('join','POST',{code:inv.data.code,label:'Synthetic '+role,role:'admin'},role);assert.equal(join.status,201);assert.equal(join.data.role,role);assert.equal((await call('join','POST',{code:inv.data.code,label:'Other'},'outsider')).status,409)}
+assert.equal((await call('invite'+q,'POST',{role:'physician'},'nurse')).status,403);
+const before=new Date(Date.now()-1800000).toISOString(),id=crypto.randomUUID();const body={caseCode:'WALK-LOW-01',requestKey:id,triageAt:before,syntheticOnly:true,measurements:{age:45,temperature:38.5,anc:.3,systolic:118,crcl:95}};
+assert.equal((await call('visits'+q,'POST',body,'physician')).status,403);
+assert.equal((await call('visits'+q,'POST',{...body,measurements:{age:2}},'nurse')).status,400);
+assert.equal((await call('visits'+q,'POST',body,'nurse')).status,201);
+assert.equal((await call('visits'+q,'POST',body,'nurse')).data.duplicate,true);
+const physician={id,action:'submit_plan',revision:1,operationKey:crypto.randomUUID(),note:'Synthetic plan rationale',plan:'Synthetic review draft; no orders transmitted'};
+assert.equal((await call('transition'+q,'POST',physician,'nurse')).status,403);
+assert.equal((await call('transition'+q,'POST',physician,'physician')).status,200);
+assert.equal((await call('transition'+q,'POST',physician,'physician')).data.duplicate,true);
+assert.equal((await call('transition'+q,'POST',{...physician,operationKey:crypto.randomUUID()},'physician')).status,409);
+const action=(action,revision)=>({id,action,revision,operationKey:crypto.randomUUID(),note:'Synthetic handoff review'});
+assert.equal((await call('transition'+q,'POST',action('request_changes',2),'pharmacist')).status,200);
+assert.equal((await call('transition'+q,'POST',{...action('submit_plan',3),plan:'Revised synthetic plan'},'physician')).status,200);
+assert.equal((await call('transition'+q,'POST',action('pharmacy_review',4),'pharmacist')).status,200);
+assert.equal((await call('transition'+q,'POST',{...action('record_dose',5),regimen:'Fictional verified regimen',administeredAt:'2000-01-01T00:00:00Z'},'nurse')).status,400);
+assert.equal((await call('transition'+q,'POST',{...action('record_dose',5),regimen:'Fictional verified regimen',administeredAt:new Date().toISOString()},'nurse')).status,200);
+r=await call('workspace'+q,'GET',null,'physician');assert.equal(r.data.visits[0].stage,'complete');assert.equal(r.data.visits[0].revision,6);assert.equal(r.data.events.length,6);assert.equal(r.data.members.length,4);
+assert.ok(r.data.events.every(e=>e.actor_role===e.performed_role));
+assert.equal((await call('workspace'+q,'GET',null,'outsider')).status,403);
+const other=await call('workspaces','POST',{name:'Second team',label:'Other admin',syntheticOnly:true},'outsider');const wrong='?workspace='+other.data.id;assert.equal((await call('transition'+wrong,'POST',action('record_dose',6),'outsider')).status,404);
+console.log('PASS: identity and origin, real role invites, single use, privilege rejection, shared nursing/physician/pharmacy handoffs, change requests, time validation, audit, idempotency, revision conflict and workspace isolation');
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,11 @@
+const vm=require('node:vm'),fs=require('node:fs'),assert=require('node:assert/strict');
+const ctx={esc:String,state:{},templates:{'FN-1':{items:['Review']}},orderSources:{},orderView:()=>'',exportOrder(){},render(){},Date};vm.createContext(ctx);vm.runInContext(fs.readFileSync('dist/baseline-approval.js','utf8'),ctx);
+assert.equal(vm.runInContext('approvalStatus().complete',ctx),false);
+vm.runInContext(`for(const role of approvalStatus().roles)state.protocolApprovals.unshift({role,decision:'Demo approval',nextReview:'2099-01-01',fingerprint:protocolFingerprint()})`,ctx);
+assert.equal(vm.runInContext('approvalStatus().complete',ctx),true);
+vm.runInContext(`state.protocolApprovals.unshift({...state.protocolApprovals[0],decision:'Changes requested'})`,ctx);
+assert.equal(vm.runInContext('approvalStatus().complete',ctx),false);
+vm.runInContext(`state.protocolApprovals.shift(); templates['FN-1'].items.push('Changed');`,ctx);
+assert.equal(vm.runInContext('approvalStatus().complete',ctx),false);
+assert.match(vm.runInContext('protocolBadge()',ctx),/pending clinical/);
+console.log('PASS: multi-role simulation review, latest rejection, release invalidation, clinical draft status');
