@@ -15,9 +15,21 @@ async function accessPrincipal(request,env){
 }
 async function accessLimit(request,env,kind){const ip=request.headers.get('CF-Connecting-IP')||'unknown';const raw=kind+':'+Math.floor(Date.now()/900000)+':'+ip;const key=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)))).map(x=>x.toString(16).padStart(2,'0')).join('');await env.DB.prepare('INSERT INTO access_limits (key,count) VALUES (?,1) ON CONFLICT(key) DO UPDATE SET count=count+1').bind(key).run();const row=await env.DB.prepare('SELECT count FROM access_limits WHERE key=?').bind(key).first();return row.count<=(kind==='signup'?8:40)}
 function accessPublic(p){if(!p)return {signedIn:false};if(p.owner)return {signedIn:true,role:'superadmin',status:'approved',label:'Application owner',email:p.email};const a=p.account;return {signedIn:true,email:p.email,role:p.role,status:p.status,account:a?{username:a.username,label:a.label,requestedRole:a.requested_role,externalId:a.external_id,status:a.status,role:a.role,reason:a.reason}:null}}
+async function accessNotifyOwner(env){
+ try{const {msgPush}=await import('./messaging.mjs');return await msgPush(env,env.FN_SUPERADMIN_UID,crypto.randomUUID(),'registration')}catch{return {accepted:0,configured:!!env.VAPID_PUBLIC_KEY,failed:1}}
+}
+async function accessRecoverRequest(env,user){
+ if(!user?.id||!user.email_confirmed_at||user.id===env.FN_SUPERADMIN_UID)return;
+ if(await env.DB.prepare('SELECT id FROM access_accounts WHERE id=?').bind(user.id).first())return;
+ const meta=user.user_metadata||{};
+ // Only identity-provider returned metadata of a password-authenticated user is used.
+ const saved=await accessEnroll(env,{id:user.id,email:user.email},meta);
+ if(saved.status===201)await accessNotifyOwner(env);
+}
 async function accessEnroll(env,p,r){
  const username=accessClean(r.username,32).toLowerCase(),label=accessClean(r.label),externalId=accessClean(r.externalId,60),role=r.requestedRole;
  if(!/^[a-z][a-z0-9_.-]{2,31}$/.test(username)||!label||!externalId||!accessRoles.includes(role)||r.syntheticOnly!==true)return accessJSON({error:'Enter a name, 3–32 character username, staff/patient ID, role and synthetic-only confirmation.'},400);
+ const existing=await env.DB.prepare('SELECT id,status FROM access_accounts WHERE id=?').bind(p.id).first();if(existing)return accessJSON({ok:true,status:existing.status,duplicate:true});
  const old=await env.DB.prepare('SELECT id FROM access_accounts WHERE username=?').bind(username).first();if(old)return accessJSON({error:'Username unavailable. Choose another.'},409);
  const now=new Date().toISOString();await env.DB.batch([env.DB.prepare('INSERT INTO access_accounts (id,email,username,label,requested_role,external_id,status,revision,created_at) VALUES (?,?,?,?,?,?,?,1,?)').bind(p.id,p.email.toLowerCase(),username,label,role,externalId,'pending',now),env.DB.prepare('INSERT INTO access_events (id,actor_id,target_id,action,note,at) VALUES (?,?,?,?,?,?)').bind(crypto.randomUUID(),p.id,p.id,'REGISTRATION_REQUESTED',role,now)]);return accessJSON({ok:true,status:'pending'},201);
 }
@@ -30,9 +42,22 @@ async function accessApi(request,env){
  if(path==='signup'&&request.method==='POST'){
   if(!await accessLimit(request,env,'signup'))return accessJSON({error:'Too many registration attempts. Try again in 15 minutes.'},429);
   const r=await accessBody(request);if(typeof r.email!=='string'||!/^\S+@\S+\.\S+$/.test(r.email)||typeof r.password!=='string'||r.password.length<12||r.password.length>256||!accessRoles.includes(r.requestedRole)||r.syntheticOnly!==true||!/^[a-z][a-z0-9_.-]{2,31}$/i.test(r.username)||!accessClean(r.label)||!accessClean(r.externalId))return accessJSON({error:'Complete all fields. Use a password of at least 12 characters.'},400);
-  const response=await accessProvider(env,'signup','POST',{email:r.email.trim().toLowerCase(),password:r.password,data:{username:r.username.toLowerCase(),label:accessClean(r.label),requestedRole:r.requestedRole,externalId:accessClean(r.externalId,60),syntheticOnly:true}});if(!response.ok)return accessJSON({error:'Registration could not complete. Check the email/password requirements or sign in if you already registered.'},400);
-  /* Deliberately do not accept signup tokens as approval. User must verify email and sign in. */
-  return accessJSON({ok:true,message:'Check your email if confirmation is required, then sign in to submit your access request. Administrator approval is separate.'},201);
+  const username=r.username.toLowerCase(),email=r.email.trim().toLowerCase();
+  // Check aliases before creating Auth credentials; repeat the unique check during persistence.
+  const alias=await env.DB.prepare('SELECT id FROM access_accounts WHERE username=?').bind(username).first();
+  if(alias)return accessJSON({error:'Username unavailable. If you already registered, sign in instead.'},409);
+  const response=await accessProvider(env,'signup','POST',{email,password:r.password,data:{username,label:accessClean(r.label),requestedRole:r.requestedRole,externalId:accessClean(r.externalId,60),syntheticOnly:true}});if(!response.ok)return accessJSON({error:'Registration could not complete. Check the email/password requirements or sign in if you already registered.'},400);
+  const result=await response.json(),user=result.user||result;
+  // Supabase may return an obfuscated user for a duplicate email. Never enqueue it.
+  const realIdentity=typeof user.id==='string'&&/^[0-9a-f-]{36}$/i.test(user.id)&&user.email?.toLowerCase()===email&&Array.isArray(user.identities)&&user.identities.some(i=>i.provider==='email'&&i.user_id===user.id);
+  if(!realIdentity||user.id===env.FN_SUPERADMIN_UID)return accessJSON({ok:true,status:'check_account',message:'If this email is already registered, sign in with your existing password. Otherwise check your confirmation email. No new approval request was confirmed.'});
+  try{
+   const saved=await accessEnroll(env,{id:user.id,email},r),data=await saved.json();
+   if(!saved.ok)return accessJSON({error:'Your login account was created, but the approval request could not be saved. Sign in with your email to recover it. '+(data.error||'')},409);
+   if(data.duplicate)return accessJSON({ok:true,status:'check_account',message:'Your account already has a registration request. Sign in with your existing credentials to see its current status.'});
+   await accessNotifyOwner(env);
+   return accessJSON({ok:true,status:data.status,requestSubmitted:true,emailConfirmationRequired:!user.email_confirmed_at,message:'Your request has been sent to the administrator. Wait for approval. '+(!user.email_confirmed_at?'Confirm your email before your first sign-in; your request is already in the approval inbox.':'After approval, sign in with your username or email and password.')},201);
+  }catch{return accessJSON({error:'Your login account was created, but saving the approval request is unconfirmed. Sign in with your email to recover it; do not create another account.'},503)}
  }
  if(path==='signin'&&request.method==='POST'){
   if(!await accessLimit(request,env,'signin'))return accessJSON({error:'Too many sign-in attempts. Try again in 15 minutes.'},429);
@@ -40,20 +65,22 @@ async function accessApi(request,env){
   const lookup=login.includes('@')?null:await env.DB.prepare('SELECT email FROM access_accounts WHERE username=?').bind(login).first();const email=login.includes('@')?login:lookup?.email||'unknown-user@invalid.example';
   const response=await accessProvider(env,'token?grant_type=password','POST',{email,password:r.password});if(!response.ok)return accessJSON({error:'Sign-in failed. Check email / username, password and email confirmation.'},401);
   const s=await response.json();if(!s.access_token||!s.user?.email_confirmed_at)return accessJSON({error:'Verify your email before signing in.'},403);
+  await accessRecoverRequest(env,s.user);
   return accessJSON({ok:true},200,{'Set-Cookie':accessCookie(s.access_token,Math.min(Number(s.expires_in)||3600,3600))});
  }
  if(path==='signout'&&request.method==='POST'){const p=await accessPrincipal(request,env);if(p){await env.DB.prepare('DELETE FROM push_subscriptions WHERE user_id=?').bind(p.id).run();await accessProvider(env,'logout','POST',{},p.token);}return accessJSON({ok:true},200,{'Set-Cookie':accessCookie('',0)})}
  const p=await accessPrincipal(request,env);if(!p)return accessJSON({error:'Sign in with your application account.'},401);
  if(path==='session'&&request.method==='GET')return accessJSON(accessPublic(p));
- if(path==='enroll'&&request.method==='POST'){if(p.owner||p.account)return accessJSON({error:'Account request already exists.'},409);return accessEnroll(env,p,await accessBody(request))}
+ if(path==='enroll'&&request.method==='POST'){if(p.owner||p.account)return accessJSON({error:'Account request already exists.'},409);const saved=await accessEnroll(env,p,await accessBody(request));if(saved.status===201)await accessNotifyOwner(env);return saved}
  if(path==='patient'&&request.method==='GET'){
   if(p.status!=='approved'||p.role!=='patient')return accessJSON({error:'Approved patient account required.'},403);
   const v=p.account.patient_visit_id?await env.DB.prepare('SELECT case_code,stage,snapshot FROM team_visits WHERE id=? AND team_id=?').bind(p.account.patient_visit_id,p.account.workspace_id).first():null;
   if(!v)return accessJSON({linked:false});const s=JSON.parse(v.snapshot);return accessJSON({linked:true,caseCode:v.case_code,stage:v.stage,triageAt:s.triageAt,dose:s.dose?{regimen:s.dose.regimen,administeredAt:s.dose.administeredAt}:null,syntheticOnly:true});
  }
  if(!p.owner)return accessJSON({error:'Super Admin access required.'},403);
+ if(path==='request-summary'&&request.method==='GET'){const row=await env.DB.prepare("SELECT COUNT(*) AS n FROM access_accounts WHERE status='pending'").first();return accessJSON({pending:row.n})}
  if(path==='requests'&&request.method==='GET'){
-  const [accounts,events,teams,visits]=await Promise.all([env.DB.prepare('SELECT * FROM access_accounts ORDER BY created_at DESC LIMIT 200').all(),env.DB.prepare('SELECT * FROM access_events ORDER BY at DESC LIMIT 100').all(),env.DB.prepare('SELECT id,name FROM demo_teams ORDER BY created_at DESC').all(),env.DB.prepare('SELECT id,team_id,case_code FROM team_visits ORDER BY updated_at DESC LIMIT 200').all()]);return accessJSON({accounts:accounts.results,events:events.results,teams:teams.results,visits:visits.results,emailNotifications:false});
+  const [accounts,events,teams,visits]=await Promise.all([env.DB.prepare("SELECT * FROM access_accounts ORDER BY (status='pending') DESC,created_at DESC LIMIT 200").all(),env.DB.prepare('SELECT * FROM access_events ORDER BY at DESC LIMIT 100').all(),env.DB.prepare('SELECT id,name FROM demo_teams ORDER BY created_at DESC').all(),env.DB.prepare('SELECT id,team_id,case_code FROM team_visits ORDER BY updated_at DESC LIMIT 200').all()]);return accessJSON({accounts:accounts.results,events:events.results,teams:teams.results,visits:visits.results,emailNotifications:false});
  }
  if(path==='review'&&request.method==='POST'){
   const r=await accessBody(request);if(r.id===env.FN_SUPERADMIN_UID||!['approved','rejected','suspended'].includes(r.status)||!Number.isInteger(r.revision)||!accessClean(r.reason,600))return accessJSON({error:'Valid decision, current revision and reason required. Owner access cannot be changed here.'},400);
