@@ -1039,7 +1039,13 @@ function postgresDatabase(env, namespace = "live") {
       if (id < 0) throw Error("Query is not in the approved application catalog");
       return { id, args: s.args };
     });
-    const response = await (env.DATABASE_FETCH || fetch)(env.SUPABASE_URL + "/functions/v1/fn-database", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + env.FN_DATABASE_KEY }, body: JSON.stringify({ namespace, statements: entries }), redirect: "error", signal: AbortSignal.timeout(25e3) });
+    let response;
+    try {
+      response = await (env.DATABASE_FETCH || fetch)(env.SUPABASE_URL + "/functions/v1/fn-database", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + env.FN_DATABASE_KEY }, body: JSON.stringify({ namespace, statements: entries }), redirect: "manual", signal: AbortSignal.timeout(25e3) });
+    } catch (e) {
+      const message = String(e?.message || "").replace(/https?:\/\/\S+/g, "[url]").replace(/[A-Za-z0-9_-]{48,}/g, "[redacted]").slice(0, 160);
+      throw Error("POSTGRES_NETWORK_UNAVAILABLE: " + message);
+    }
     if (!response.ok) throw Error("Postgres request failed (" + response.status + ")");
     const result = await response.json();
     if (!Array.isArray(result.results) || result.results.length !== entries.length) throw Error("Invalid database response");
@@ -1073,6 +1079,14 @@ var worker_entry_default = { async fetch(request, env) {
     if (url.pathname.startsWith("/api/")) {
       if (env.FN_MIGRATION_LOCK === "true") return new Response(JSON.stringify({ error: "Data migration in progress. Please retry shortly." }), { status: 503, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", "Retry-After": "60" } });
       env = databaseEnvironment(env);
+      if (url.pathname === "/api/data-health") {
+        try {
+          await env.DB.prepare("SELECT COUNT(*) AS n FROM access_accounts WHERE status='pending'").first();
+          return Response.json({ ready: true, backend: env.FN_DATABASE_MODE === "supabase" ? "supabase" : "d1" });
+        } catch (e) {
+          return Response.json({ ready: false, code: String(e.message).startsWith("POSTGRES_") ? String(e.message) : "DATABASE_UNAVAILABLE" }, { status: 503 });
+        }
+      }
     }
     if (url.pathname.startsWith("/api/calls/")) return callsApi(request, env);
     if (url.pathname.startsWith("/api/messages/")) return messagingApi(request, env);
