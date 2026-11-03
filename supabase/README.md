@@ -1,18 +1,16 @@
-# Supabase connection — FN CDS
+# FN CDS — Supabase backend
 
-Target project: `pofrqinczjnufyyggdnk` (FN CDS), PostgreSQL 17.
-Repository: `alaaelddinshamkh/FN-CDS-System`, branch `main`.
+Project: `pofrqinczjnufyyggdnk` (FN CDS), PostgreSQL 17.
+Repository: `alaaelddinshamkh/FN-CDS-System`, branch `main`, working directory `.`.
 
-## Finish the GitHub connection
-In the Supabase project dashboard, go to Settings → Integrations → GitHub Integration. Authorize the Supabase GitHub integration for this repository, choose FN-CDS-System, and set the working directory to `.`. Use main as the production branch. Automatic preview branching is optional and can add charges; it is not required for the initial connection. Verify the connected repository and deployment status in Supabase after enabling the integration.
+Supabase Auth provides sign-in. The v27 application data backend uses the private `fn_app` PostgreSQL schema via the server-only `fn-database` Edge Function. The frontend/PWA remains on Sites. The old D1 binding is retained as a migration checkpoint and must not receive concurrent application writes after cutover.
 
-These repository files prepare the integration; their presence alone does NOT establish the dashboard connection or activate deployments.
+The database gateway requires a separate secret configured only in the Sites server; only its hash is stored in `fn_private.gateway_credentials`. The Edge Function uses its built-in database connection to authenticate the gateway, then switches to a restricted no-login role for allowlisted parameterized application queries. Public and authenticated clients have no access to these schemas. Application role/approval checks remain mandatory on the Worker.
 
-## Current architecture
-Supabase Auth already provides application sign-in. The app backend and structured application records remain on Sites/D1. Inspection before this setup found no public Supabase tables or migration history. This folder therefore contains no database migrations or seed data. Existing SQLite migrations under ../drizzle must NOT be run on PostgreSQL.
+`config.toml` declares the function. JWT gateway verification is disabled because this endpoint performs its own server credential authentication; an Auth JWT or publishable key cannot authorize access. Never expose the gateway key to the client or GitHub. It is not the Supabase service-role key.
 
-This setup does not migrate D1 visits, approvals, messages or call signaling into Supabase. That requires PostgreSQL schemas, access policies, a backend adapter, data export/import and validation before switching production. It also does not host or redeploy the application frontend from GitHub. Continue the existing Sites publication workflow for the app itself.
+The migration file matches the cloud migration version. Fresh environments require a separately provisioned hashed gateway credential. Production data is not in this repository. Never apply old SQLite files under ../drizzle directly to PostgreSQL.
 
-For future PostgreSQL changes, use the Supabase CLI to create versioned migrations, test on a separate development database, enable appropriate RLS for exposed tables, and review before production deployment. Keep passwords, service-role keys, access tokens and production records out of Git.
+When application SQL changes, regenerate the catalog, test the new queries and deploy matching catalogs on both the Edge Function and Worker. Keep live and test query namespaces separated. For live PostgreSQL tests see ../scripts/run-postgres-check.mjs; only `fn_app_test` is disposable. Do not reset or truncate `fn_app`.
 
-Docs: https://supabase.com/docs/guides/deployment/branching/github-integration
+The native GitHub integration was shown configured by the owner. This repository now contains the PostgreSQL migration and declared Edge Function for that integration. Review the deployment result after each main-branch push; this does not deploy the Sites frontend.

@@ -1,8 +1,9 @@
-# Local project identifier; cloud project: FN CDS (pofrqinczjnufyyggdnk).
 project_id = "fn-cds-system"
-
 [db]
 major_version = 17
-
 [db.seed]
 enabled = false
+[functions.fn-database]
+# This server-only endpoint verifies a separate gateway credential itself.
+verify_jwt = false
+entrypoint = "./functions/fn-database/index.ts"
