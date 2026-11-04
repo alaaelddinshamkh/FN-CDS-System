@@ -5,6 +5,8 @@ for(const c of cases){a.cleanInput(c.input);const r=a.calculate(c.input,c,0);ass
 assert.deepEqual(calc(1).meds.map(x=>x.code),['ciprofloxacin','amoxicillin-clavulanate']);
 for(const [crcl,maintenance] of [[61,'2 g IV every 8h'],[60,'2 g IV every 12h'],[30,'2 g IV every 12h'],[29,'2 g IV every 24h'],[11,'2 g IV every 24h'],[10,'1 g IV every 24h']]){const r=calc(5,{crcl});assert.equal(r.meds[0].first,'2 g IV initial dose once');assert.equal(r.meds[0].maintenance,maintenance);}
 assert.match(calc(7).meds[0].first,/1 g/);assert.match(calc(8).meds[0].maintenance,/Withheld/);
+assert.equal(calc(9,{renalState:'Changing / AKI'}).meds.length,0,'AKI must not extrapolate renal schedules for unstable combinations');
+assert.match(calc(8,{crcl:30}).meds[0].maintenance,/Withheld/);
 assert.equal(calc(8,{allergy:'Unknown'}).meds.length,0,'AKI must not bypass allergy gap');
 assert.deepEqual(calc(9).meds.map(x=>x.code),['meropenem','vancomycin']);assert.match(calc(9).meds[1].first,/1500 mg/);
 assert.equal(calc(9,{weight:180}).meds[1].blocked,true,'Do not extrapolate dosing weight to obesity');

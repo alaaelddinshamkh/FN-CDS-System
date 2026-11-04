@@ -16,6 +16,7 @@ function calculate(p,scenario={},elapsed=0){
  for(const k of ['newHypoxia','confusion','prolonged','mucositis','pneumonia','lineInfection','abdomen','majorComorbidity','fqProphylaxis','mrsa','priorAntibiotic'])if(typeof p[k]!=='boolean')missing.push('Verify '+k);
  if(!['Stable','Changing / AKI'].includes(p.renalState))missing.push('Renal trajectory');
  if(!['None','Penicillin','Ceftazidime','Aztreonam','Cefepime','Other','Unknown'].includes(p.allergyDrug)||p.allergy!=='None'&&['None','Unknown'].includes(p.allergyDrug))missing.push('Specific allergy drug');
+ if(p.allergy==='None'&&p.allergyDrug!=='None')missing.push('Allergy phenotype / culprit conflict');
  const fever=p.method==='Oral'&&(p.temp>=38.3||(p.temp>=38&&numeric(p.feverHours,0,1000)&&p.feverHours>=1)),neutro=numeric(p.anc,0,100)&&p.anc<.5||p.expectedDecline===true;
  const fn=fever&&neutro?'Criteria supported':missing.some(m=>/Temperature|temperature|fever|ANC/.test(m))?'Incomplete':'Not established';
  const unstable=numeric(p.sbp,30,300)&&p.sbp<=90||p.confusion===true||p.newHypoxia===true||numeric(p.spo2,40,100)&&p.spo2<=92||numeric(p.rr,1,100)&&p.rr>=30;
@@ -27,7 +28,7 @@ function calculate(p,scenario={},elapsed=0){
  if(p.resistance&&p.resistance!=='None')reasons.push('Documented resistant-organism history requires individualized review');
  const risk=unstable?'High risk + urgent instability':fn!=='Criteria supported'?'Incomplete / urgent assessment':reasons.length?'High risk':missing.length?'Incomplete / urgent assessment':'Low risk candidate';
  const outpatient=risk==='Low risk candidate'&&p.category==='Solid tumour'&&p.setting==='Outpatient'&&p.oralIntake===true&&p.support===true&&p.transport===true&&p.followup===true&&p.fqProphylaxis===false&&p.allergy==='None'&&p.renalState==='Stable'&&p.crcl>60;
- const needReview=missing.length>0||fn!=='Criteria supported'||!numeric(p.age,18,120)||['SCAR','Unknown'].includes(p.allergy)||!['None','ESBL','KPC'].includes(p.resistance);
+ const needReview=missing.length>0||p.renalState!=='Stable'||fn!=='Criteria supported'||!numeric(p.age,18,120)||['SCAR','Unknown'].includes(p.allergy)||!['None','ESBL','KPC'].includes(p.resistance);
  const med=(code,name,first,maintenance,infusion,why,source,blocked=false)=>meds.push({code,name,first,maintenance,infusion,why,source,blocked});
  if(fn!=='Criteria supported')alerts.push('Clarify FN criteria urgently; incomplete numeric criteria do not rule out serious infection. Do not wait for the form to finish to seek care.');
  if(needReview)alerts.push('Automatic medication selection needs clinician clarification of the listed gaps; urgent clinician-directed treatment must not be delayed.');
