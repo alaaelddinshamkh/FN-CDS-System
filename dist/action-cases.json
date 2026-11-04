@@ -1,0 +1,3418 @@
+[
+  {
+    "id": "A2A-01",
+    "title": "Stable solid tumour candidate",
+    "syntheticOnly": true,
+    "history": "Breast cancer after cycle 2; mild fatigue, no focal symptoms. Lives with caregiver 20 minutes from assessment unit.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Breast cancer",
+      "category": "Solid tumour",
+      "chemo": "Doxorubicin/cyclophosphamide",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 108,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 33,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Ciprofloxacin 750 mg PO + amoxicillin/clavulanate 875/125 mg PO",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "Low risk candidate"
+  },
+  {
+    "id": "A2A-02",
+    "title": "Older stable outpatient candidate",
+    "syntheticOnly": true,
+    "history": "Colorectal cancer following FOLFOX. Independent, reliable transport and daily review available.",
+    "input": {
+      "age": 64,
+      "sex": "Female",
+      "weight": 66,
+      "height": 168,
+      "cancer": "Colorectal cancer",
+      "category": "Solid tumour",
+      "chemo": "FOLFOX",
+      "chemoDay": 10,
+      "temp": 38.4,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 111,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.62,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 34,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Ciprofloxacin 750 mg PO + amoxicillin/clavulanate 875/125 mg PO",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "Low risk candidate"
+  },
+  {
+    "id": "A2A-03",
+    "title": "AML with prolonged profound neutropenia",
+    "syntheticOnly": true,
+    "history": "Induction chemotherapy; ANC expected below 0.1 for more than 7 days. No focal source at presentation.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Cytarabine/daunorubicin",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.04,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.54,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.04,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 35,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 960,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood",
+        "result": "Final identification and AST",
+        "organism": "Pseudomonas aeruginosa",
+        "ast": {
+          "cefepime": "S",
+          "piperacillin/tazobactam": "S",
+          "meropenem": "S"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-04",
+    "title": "Severe symptoms during inpatient chemotherapy",
+    "syntheticOnly": true,
+    "history": "Lymphoma inpatient with severe malaise and dehydration requiring IV therapy; no hypotension.",
+    "input": {
+      "age": 67,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "DLBCL",
+      "category": "Haematological",
+      "chemo": "R-CHOP",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.12,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 118,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Severe",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": true,
+      "setting": "Inpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.62,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.12,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 117,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.64,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 36,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-05",
+    "title": "Stable chronic renal impairment CrCl 45",
+    "syntheticOnly": true,
+    "history": "Known CKD with stable creatinine on three measurements. Renal-dose review required before continuing therapy.",
+    "input": {
+      "age": 61,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Ovarian cancer",
+      "category": "Solid tumour",
+      "chemo": "Carboplatin/paclitaxel",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 45,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 120,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.45,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 45,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 37,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 840,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood / urine",
+        "result": "Final identification and AST",
+        "organism": "Escherichia coli",
+        "ast": {
+          "cefepime": "S",
+          "meropenem": "S",
+          "ciprofloxacin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-06",
+    "title": "Severe chronic renal impairment CrCl 20",
+    "syntheticOnly": true,
+    "history": "Stable advanced CKD, not on dialysis. No beta-lactam allergy; no recent cefepime dose.",
+    "input": {
+      "age": 70,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Bladder cancer",
+      "category": "Solid tumour",
+      "chemo": "Gemcitabine-based regimen",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 20,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 123,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 2.89,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 20,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 38,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-07",
+    "title": "Intermittent haemodialysis",
+    "syntheticOnly": true,
+    "history": "ESRD on established Mon/Wed/Fri haemodialysis. Last session yesterday; no dialysis scheduled today. Coordinate subsequent post-HD dosing.",
+    "input": {
+      "age": 63,
+      "sex": "Female",
+      "weight": 75,
+      "height": 168,
+      "cancer": "Multiple myeloma",
+      "category": "Haematological",
+      "chemo": "Bortezomib-based regimen",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 5,
+      "renalState": "Stable",
+      "dialysis": "Intermittent HD",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 126,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 13.64,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 5,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 5.3,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 39,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 1 g IV over 30 min; next dose aligned with HD plan",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-08",
+    "title": "Acute kidney injury with changing clearance",
+    "syntheticOnly": true,
+    "history": "Creatinine rose from 0.9 to 2.1 mg/dL over 24h with reduced urine output. Estimated CrCl is unreliable for maintenance scheduling.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Lung cancer",
+      "category": "Solid tumour",
+      "chemo": "Platinum-based regimen",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 118,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": null,
+      "renalState": "Changing / AKI",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 129,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 2.1,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": null,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 5.3,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 40,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      },
+      {
+        "name": "Creatinine, previous day",
+        "value": 0.9,
+        "unit": "mg/dL",
+        "at": 0
+      }
+    ],
+    "cultures": [
+      {
+        "at": 840,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood / urine",
+        "result": "Final identification and AST",
+        "organism": "Escherichia coli",
+        "ast": {
+          "cefepime": "S",
+          "meropenem": "S",
+          "ciprofloxacin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-09",
+    "title": "Haemodynamic instability",
+    "syntheticOnly": true,
+    "history": "Post-chemotherapy fever with hypotension, acute confusion and poor perfusion. Urgent resuscitation and critical-care assessment.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction chemotherapy",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.02,
+      "expectedDecline": false,
+      "sbp": 78,
+      "dbp": 44,
+      "hr": 138,
+      "rr": 32,
+      "spo2": 91,
+      "newHypoxia": false,
+      "confusion": true,
+      "burden": "Severe",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": true,
+      "setting": "Outpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 75,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.52,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.02,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.32,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 75,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 41,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 5.2,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 720,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood",
+        "result": "ESBL phenotype; final identification and AST",
+        "organism": "ESBL Escherichia coli",
+        "ast": {
+          "cefepime": "R",
+          "piperacillin/tazobactam": "R",
+          "meropenem": "S",
+          "ciprofloxacin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Meropenem 1 g IV over 30 min; vancomycin loading reference 1500 mg IV over at least 150 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk + urgent instability"
+  },
+  {
+    "id": "A2A-10",
+    "title": "Pneumonia with new hypoxia",
+    "syntheticOnly": true,
+    "history": "New productive cough and respiratory distress, new oxygen requirement; chest imaging supports pneumonia.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "Lung cancer",
+      "category": "Solid tumour",
+      "chemo": "Docetaxel",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 104,
+      "dbp": 62,
+      "hr": 126,
+      "rr": 32,
+      "spo2": 87,
+      "newHypoxia": true,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": true,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 135,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 42,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 3.1,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Sputum",
+        "result": "Staphylococcus aureus; susceptibility pending",
+        "organism": "Staphylococcus aureus",
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Sputum",
+        "result": "Final identification and AST",
+        "organism": "MRSA",
+        "ast": {
+          "vancomycin": "S",
+          "oxacillin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [
+      {
+        "at": 20,
+        "text": "Chest imaging: new right lower-zone consolidation"
+      }
+    ],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Meropenem 1 g IV over 30 min; vancomycin loading reference 1500 mg IV over at least 150 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk + urgent instability"
+  },
+  {
+    "id": "A2A-11",
+    "title": "Suspected line infection and previous MRSA",
+    "syntheticOnly": true,
+    "history": "Rigors during line access with tender erythematous exit site. Prior MRSA bloodstream isolate documented two months ago.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "ALL",
+      "category": "Haematological",
+      "chemo": "Consolidation chemotherapy",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.05,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": true,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": true,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.55,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.05,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 138,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 43,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 900,
+        "specimen": "Central-line and peripheral blood",
+        "result": "Gram-positive cocci in clusters",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Central-line and peripheral blood",
+        "result": "Final identification and AST",
+        "organism": "MRSA",
+        "ast": {
+          "vancomycin": "S",
+          "oxacillin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "Previous MRSA bloodstream isolate documented",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min; vancomycin loading reference 1500 mg IV over at least 150 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-12",
+    "title": "Recent ESBL bloodstream infection",
+    "syntheticOnly": true,
+    "history": "Previous ESBL E. coli bacteremia 30 days ago, susceptible to meropenem; recent susceptibility report available at triage.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Consolidation",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.06,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "ESBL",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.56,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.06,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 44,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 720,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood",
+        "result": "ESBL phenotype; final identification and AST",
+        "organism": "ESBL Escherichia coli",
+        "ast": {
+          "cefepime": "R",
+          "piperacillin/tazobactam": "R",
+          "meropenem": "S",
+          "ciprofloxacin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "Documented recent ESBL isolate and susceptibility report",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Meropenem 1 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-13",
+    "title": "Prior KPC CRE with documented susceptibility",
+    "syntheticOnly": true,
+    "history": "Prior urinary KPC Klebsiella isolate susceptible to ceftazidime/avibactam, resistant to meropenem. Urgent ID review is available; no beta-lactam allergy.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Bladder cancer",
+      "category": "Solid tumour",
+      "chemo": "Gemcitabine/carboplatin",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 82,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "KPC",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 144,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.96,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 82,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 45,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 900,
+        "specimen": "Blood / urine",
+        "result": "Gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood / urine",
+        "result": "KPC detected; final AST",
+        "organism": "KPC Klebsiella pneumoniae",
+        "ast": {
+          "cefepime": "R",
+          "meropenem": "R",
+          "ceftazidime/avibactam": "S"
+        }
+      }
+    ],
+    "priorMicrobiology": "Documented recent KPC isolate and susceptibility report",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 50,
+        "action": "After ID approval: ceftazidime/avibactam 2.5 g IV over 2 hours",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-14",
+    "title": "Immediate beta-lactam hypersensitivity",
+    "syntheticOnly": true,
+    "history": "Documented penicillin anaphylaxis with bronchospasm. No ceftazidime allergy or SCAR; clinician verifies allergy history.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "Lymphoma",
+      "category": "Haematological",
+      "chemo": "R-CHOP",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "Immediate",
+      "allergyDrug": "Penicillin",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 147,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 46,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 50,
+        "action": "After allergy/ID review: aztreonam 2 g IV + vancomycin loading reference 1500 mg IV over at least 150 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-15",
+    "title": "Severe cutaneous adverse reaction",
+    "syntheticOnly": true,
+    "history": "Previous Stevens-Johnson syndrome attributed to cefepime; detailed drug allergy review and specialist regimen selection required urgently.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.04,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "SCAR",
+      "allergyDrug": "Cefepime",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.54,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.04,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 47,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 25,
+        "action": "Urgent ID/allergy review; no automatic drug/dose released in this teaching case",
+        "type": "clinical review; no automatic administration record"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-16",
+    "title": "Suspected neutropenic enterocolitis",
+    "syntheticOnly": true,
+    "history": "Right lower quadrant pain, diarrhea and tenderness after chemotherapy. No peritoneal signs initially; abdominal CT and source assessment indicated.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.03,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": true,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": true,
+      "majorComorbidity": false,
+      "crcl": 80,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.53,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.03,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.98,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 80,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 48,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 1.6,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1800,
+        "specimen": "Blood, anaerobic bottle",
+        "result": "Anaerobic gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 4320,
+        "specimen": "Blood",
+        "result": "Final identification; source correlation required",
+        "organism": "Bacteroides fragilis",
+        "ast": {
+          "piperacillin/tazobactam": "S",
+          "meropenem": "S"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [
+      {
+        "at": 60,
+        "text": "Abdominal CT: ileocaecal bowel-wall thickening; correlate for neutropenic enterocolitis"
+      }
+    ],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Piperacillin/tazobactam 4.5 g IV loading dose over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-17",
+    "title": "Urinary-source presentation",
+    "syntheticOnly": true,
+    "history": "Dysuria and suprapubic discomfort with pyuria; no resistant-organism history and stable organ function.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Endometrial cancer",
+      "category": "Solid tumour",
+      "chemo": "Carboplatin/paclitaxel",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 156,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 49,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      },
+      {
+        "name": "Urine WBC",
+        "value": 45,
+        "unit": "cells/HPF",
+        "at": 20
+      }
+    ],
+    "cultures": [
+      {
+        "at": 840,
+        "specimen": "Blood, peripheral",
+        "result": "Gram-negative rods — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood / urine",
+        "result": "Final identification and AST",
+        "organism": "Escherichia coli",
+        "ast": {
+          "cefepime": "S",
+          "meropenem": "S",
+          "ciprofloxacin": "R"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-18",
+    "title": "Breakthrough fever on FQ prophylaxis",
+    "syntheticOnly": true,
+    "history": "AML induction with profound prolonged neutropenia while taking levofloxacin prophylaxis. Oral fluoroquinolone-based outpatient therapy is unsuitable.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.02,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": true,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.52,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.02,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 50,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1000,
+        "specimen": "Blood",
+        "result": "Gram-negative rods",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 2880,
+        "specimen": "Blood",
+        "result": "Final identification and AST",
+        "organism": "Escherichia coli",
+        "ast": {
+          "cefepime": "S",
+          "levofloxacin": "R",
+          "meropenem": "S"
+        }
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 35,
+        "action": "Cefepime 2 g IV over 30 min",
+        "type": "simulated administration START"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-19",
+    "title": "Persistent fever on day 5 of therapy",
+    "syntheticOnly": true,
+    "history": "High-risk AML patient remains febrile despite 5 days of cefepime. Last dose 2 hours before this reassessment; no duplicate initial dose is due. Fungal work-up is being arranged.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.01,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": true,
+      "persistentDays": 5,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.51,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.01,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 51,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      },
+      {
+        "name": "Serum galactomannan index",
+        "value": 1.4,
+        "unit": "index; lab-specific interpretation",
+        "at": 360
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood",
+        "result": "No growth — final; does not exclude invasive fungal infection",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [
+      {
+        "at": 360,
+        "text": "Chest CT: new nodules; specialist interpretation and fungal work-up required"
+      }
+    ],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 25,
+        "action": "No duplicate cefepime dose; continue existing schedule and request urgent fungal-strategy review",
+        "type": "clinical review; no automatic administration record"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "High risk"
+  },
+  {
+    "id": "A2A-20",
+    "title": "Incomplete initial assessment",
+    "syntheticOnly": true,
+    "history": "Recent chemotherapy with fever and clinical concern. ANC, fever duration, allergy verification and renal assessment are still pending. Urgent bedside evaluation continues while information is obtained.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Breast cancer",
+      "category": "Solid tumour",
+      "chemo": "AC",
+      "chemoDay": 9,
+      "temp": 38.2,
+      "method": "Oral",
+      "feverHours": null,
+      "anc": null,
+      "expectedDecline": null,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 116,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Unknown",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": null,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "Unknown",
+      "allergyDrug": "Unknown",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": null,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": null,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 165,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": null,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": null,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 52,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "cultures": [
+      {
+        "at": 1440,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth to date — preliminary",
+        "organism": null,
+        "ast": {}
+      },
+      {
+        "at": 7200,
+        "specimen": "Blood, peripheral sets 1 and 2",
+        "result": "No growth — final at 5 days",
+        "organism": null,
+        "ast": {}
+      }
+    ],
+    "priorMicrobiology": "No resistant isolate history documented in this synthetic case",
+    "imaging": [],
+    "teaching": [
+      {
+        "at": 0,
+        "action": "Triage, current assessment, allergy verification; urgent pathway if unstable"
+      },
+      {
+        "at": 12,
+        "action": "Blood cultures collected if feasible without delaying treatment"
+      },
+      {
+        "at": 25,
+        "action": "Urgent bedside selection while ANC, allergy and renal information are clarified; no automatic numeric dose",
+        "type": "clinical review; no automatic administration record"
+      },
+      {
+        "at": 60,
+        "action": "Reassess vital signs, perfusion, fluid balance and response; record owner and escalation needs"
+      },
+      {
+        "at": 240,
+        "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
+      }
+    ],
+    "expectedPathway": "Incomplete / urgent assessment"
+  }
+]

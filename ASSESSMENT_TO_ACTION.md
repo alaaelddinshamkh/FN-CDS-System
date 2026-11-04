@@ -1,0 +1,60 @@
+# Patient assessment to action · A2A-1.0
+
+This release adds 20 fictional adult cancer-associated febrile neutropenia scenarios. Open **Assessment to action** from the desktop navigation or mobile dashboard. The original workbook remains accessible through **Workbook assessments**.
+
+## Workflow
+
+Choose a case, edit the structured assessment, then apply it. The engine explains FN criteria, MASCC components, high-risk overrides, assessment gaps, outpatient eligibility, initial antibacterial references, subsequent renal dosing references and first-hour proposed tasks. Narrative history is context; it is not automatically parsed into findings.
+
+The simulation clock reveals only results available at the selected time. Prior organism history is explicitly separate from current cultures. Later susceptibility does not rewrite the initial decision; it prompts reassessment. Laboratory fixtures and the teaching timeline remain the original fictional case if the assessment is edited. Teaching events never count as actual treatment or quality outcomes.
+
+Task checkboxes select proposed draft items. Local review and action documentation are self-attested training records. They are invalidated when inputs or selected items change. Antibiotic administration requires the shared role workflow and an explicitly entered regimen and time.
+
+**Load my shared workspace** connects to existing staff membership. Nurse/admin can create a shared synthetic visit. Nurse/physician/admin can update its structured assessment. Updating an unfinished visit resets physician/pharmacy review. Completed visits preserve administration records; reassessment uses a new visit. Physician → pharmacist → nurse transitions retain the existing server role, revision, origin and audit checks. Administrators can rehearse each role, logged as administrators.
+
+The full structured assessment and task exclusions are saved inside the existing `team_visits.snapshot.a2a` JSON. Existing private Supabase storage, access guards and fixed parameterized SQL are reused. No schema or query-catalog changes are required. Unsaved exploration is device-local.
+
+## Cases
+
+| ID | Presentation |
+|---|---|
+| A2A-01 | Stable solid tumour, outpatient candidate |
+| A2A-02 | Older stable outpatient candidate |
+| A2A-03 | AML with profound prolonged neutropenia |
+| A2A-04 | Severe symptoms during inpatient chemotherapy |
+| A2A-05 | Stable CKD, CrCl 45 |
+| A2A-06 | Advanced CKD, CrCl 20 |
+| A2A-07 | Intermittent haemodialysis |
+| A2A-08 | Changing renal function / AKI |
+| A2A-09 | Hypotension and acute confusion |
+| A2A-10 | Pneumonia with new hypoxia |
+| A2A-11 | Suspected line infection and prior MRSA |
+| A2A-12 | Recent ESBL bloodstream infection |
+| A2A-13 | Prior susceptible KPC isolate |
+| A2A-14 | Immediate penicillin hypersensitivity |
+| A2A-15 | Severe cutaneous drug reaction |
+| A2A-16 | Suspected neutropenic enterocolitis |
+| A2A-17 | Urinary-source presentation |
+| A2A-18 | Breakthrough fever on FQ prophylaxis |
+| A2A-19 | Persistent fever during existing therapy |
+| A2A-20 | Incomplete initial assessment |
+
+## Evidence and clinical limits
+
+Draft educational reference only. Clinical validation, institutional adoption, local formulary/antibiogram and prescriber/pharmacist approval remain pending. These 20 examples do not cover all patients or permit autonomous prescribing. No clinical orders are transmitted. Paediatrics, pregnancy-specific regimens, obesity dosing, complex renal replacement and other resistance mechanisms require individualized review.
+
+“High risk + urgent instability” describes escalation, not a separately validated MASCC class. Physiologic red flags and clinical overrides take precedence over a reassuring score. Missing safety information blocks automated numeric selection. Changing renal function does not produce an invented maintenance interval. Existing antibiotic therapy does not generate a duplicate first dose. SCAR and complex renal/allergy scenarios require urgent specialist selection.
+
+Sources and dose-specific links are in `dist/action-core.js` and displayed beside each draft. References checked 4 November 2026 include IDSA FN guidance, ASCO/IDSA outpatient guidance, the July 2025 FDA cefepime label, IDSA AMR guidance, UCSF drug references, MD Anderson outpatient algorithm, AVYCAZ and vancomycin product labels. The cefepime HD reference deliberately follows the FDA label rather than mixing institutional HD regimens. Infusion start within 60 minutes is distinct from completion of a long infusion.
+
+## Verification and extension
+
+`node --test tests/*.test.cjs` runs 23 test files. New checks cover all 20 expected pathways, dose boundaries, missing-data and allergy guards, objective instability, no future microbiology leakage, shared input validation, role isolation, stale revisions, review invalidation and completed-dose preservation. These checks verify software behavior; they are not clinical validation.
+
+- `dist/action-cases.json`: fictional case inputs, timed results, microbiology and teaching events.
+- `dist/action-core.js`: shared pure decision logic and reference links, used by browser and Worker.
+- `dist/action-ui.js` / `.css`: case library, editor, explanations, doses, task draft, clock and shared handoff.
+- `worker/team.mjs`: structured assessment persistence using existing private storage and permissions.
+- `tests/action*.test.cjs`: independent clinical-fixture expectations and shared workflow tests.
+
+To add cases, provide a unique ID, complete structured input including explicit unknowns, realistic timestamped laboratory/culture fixtures, history, prior microbiology, a teaching timeline and independently reviewed expected outputs. Add tests and obtain clinical review before changing the draft status.
