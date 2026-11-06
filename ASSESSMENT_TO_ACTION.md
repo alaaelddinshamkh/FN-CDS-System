@@ -49,7 +49,7 @@ Sources and dose-specific links are in `dist/action-core.js` and displayed besid
 
 ## Verification and extension
 
-`node --test tests/*.test.cjs` runs 23 test files. New checks cover all 20 expected pathways, dose boundaries, missing-data and allergy guards, objective instability, no future microbiology leakage, shared input validation, role isolation, stale revisions, review invalidation and completed-dose preservation. These checks verify software behavior; they are not clinical validation.
+`node --test tests/*.test.cjs` runs 24 test files. New checks cover all 20 expected pathways, dose boundaries, missing-data and allergy guards, objective instability, no future microbiology leakage, shared input validation, role isolation, stale revisions, review invalidation and completed-dose preservation. These checks verify software behavior; they are not clinical validation.
 
 - `dist/action-cases.json`: fictional case inputs, timed results, microbiology and teaching events.
 - `dist/action-core.js`: shared pure decision logic and reference links, used by browser and Worker.
@@ -58,3 +58,13 @@ Sources and dose-specific links are in `dist/action-core.js` and displayed besid
 - `tests/action*.test.cjs`: independent clinical-fixture expectations and shared workflow tests.
 
 To add cases, provide a unique ID, complete structured input including explicit unknowns, realistic timestamped laboratory/culture fixtures, history, prior microbiology, a teaching timeline and independently reviewed expected outputs. Add tests and obtain clinical review before changing the draft status.
+
+## Named patient registry and results integration
+
+The 20 canonical scenarios now have fictional display names and stable `SIM-A2A-01` through `SIM-A2A-20` patient IDs. They join the 200 imported patients and the three walkthroughs in Overview (223 on an unmodified demo workspace). The original workbook is retained unchanged. **Show the 20 patients** filters their rows; search matches their names and IDs.
+
+Each record opens the normal laboratory, culture and vital-sign tabs, with a link back to the same assessment-to-action scenario. The integration inbox supports a named patient selector, a group filter for these 20 patients, and result search. Uploaded result matching accepts the same canonical IDs.
+
+`action-registry-core.js` projects the shared canonical case JSON into patient records and result events. No duplicate clinical dataset or new database schema is introduced. The canonical fixtures ship with the application; device-local assessment edits, result reviews and per-case simulation positions retain the existing local persistence. Saving a team visit continues to use Supabase through the existing shared workflow.
+
+Only results released by each case's simulation clock enter the inbox. Current cultures begin as pending; reported growth and AST appear at their own release times. Rewinding removes later scenario-generated events without deleting unrelated imported results. Repeat refreshes use stable event IDs. Fictional result timestamps use an explicit simulation anchor and never document actual collection or administration.

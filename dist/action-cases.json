@@ -164,7 +164,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "Low risk candidate"
+    "expectedPathway": "Low risk candidate",
+    "displayName": "Sara Hassan",
+    "patientId": "SIM-A2A-01",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-02",
@@ -331,7 +334,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "Low risk candidate"
+    "expectedPathway": "Low risk candidate",
+    "displayName": "Amira Mahmoud",
+    "patientId": "SIM-A2A-02",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-03",
@@ -502,7 +508,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Ziad Nabil",
+    "patientId": "SIM-A2A-03",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-04",
@@ -669,7 +678,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Heba Mostafa",
+    "patientId": "SIM-A2A-04",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-05",
@@ -840,7 +852,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Rania Fawzy",
+    "patientId": "SIM-A2A-05",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-06",
@@ -1007,7 +1022,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Hanan Gaber",
+    "patientId": "SIM-A2A-06",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-07",
@@ -1174,7 +1192,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Sahar Helmy",
+    "patientId": "SIM-A2A-07",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-08",
@@ -1351,7 +1372,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Doaa Ashraf",
+    "patientId": "SIM-A2A-08",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-09",
@@ -1523,7 +1547,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk + urgent instability"
+    "expectedPathway": "High risk + urgent instability",
+    "displayName": "Marwan Galal",
+    "patientId": "SIM-A2A-09",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-10",
@@ -1698,7 +1725,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk + urgent instability"
+    "expectedPathway": "High risk + urgent instability",
+    "displayName": "Seif Hamdy",
+    "patientId": "SIM-A2A-10",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-11",
@@ -1868,7 +1898,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Yazan Taha",
+    "patientId": "SIM-A2A-11",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-12",
@@ -2040,7 +2073,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Nesma Sherif",
+    "patientId": "SIM-A2A-12",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-13",
@@ -2211,7 +2247,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Basma Ezzat",
+    "patientId": "SIM-A2A-13",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-14",
@@ -2378,7 +2417,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Bilal Hossam",
+    "patientId": "SIM-A2A-14",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-15",
@@ -2545,7 +2587,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Aya Gamal",
+    "patientId": "SIM-A2A-15",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-16",
@@ -2720,7 +2765,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Esraa Magdy",
+    "patientId": "SIM-A2A-16",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-17",
@@ -2897,7 +2945,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Hadeer Sami",
+    "patientId": "SIM-A2A-17",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-18",
@@ -3068,7 +3119,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Shahd Raafat",
+    "patientId": "SIM-A2A-18",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-19",
@@ -3246,7 +3300,10 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "High risk"
+    "expectedPathway": "High risk",
+    "displayName": "Malak Bahaa",
+    "patientId": "SIM-A2A-19",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   },
   {
     "id": "A2A-20",
@@ -3413,6 +3470,9 @@
         "action": "Reassess disposition. Outpatient candidates require observed stability, eligibility and clinician decision."
       }
     ],
-    "expectedPathway": "Incomplete / urgent assessment"
+    "expectedPathway": "Incomplete / urgent assessment",
+    "displayName": "Mayar Shawky",
+    "patientId": "SIM-A2A-20",
+    "simulationStartedAt": "2026-10-25T08:00:00Z"
   }
 ]

@@ -1,0 +1,19 @@
+/* Canonical identity and time-limited projections for the fictional A2A library. */
+(function(root){
+const action=root.FNAction||(typeof require==='function'?require('./action-core.js'):null);
+const patientId=c=>c.patientId||'SIM-'+c.id;
+const yes=v=>v===true?'Yes':v===false?'No':null;
+function patient(c,input=c.input){const p=input,r=action.calculate(p,c,0);return {'Patient ID':patientId(c),'Display name':c.displayName,Diagnosis:p.cancer+' · '+c.title,Sex:p.sex,'Age (years)':p.age,'Cancer category':p.category==='Haematological'?'Haematological malignancy':p.category,'Days since last chemo':p.chemoDay,'Temp (°C)':p.temp,'Temperature method':p.method,'Fever duration (hours)':p.feverHours,'ANC (×10⁹/L)':p.anc,'Expected ANC below 0.5 in 48h':yes(p.expectedDecline),'Systolic BP (mmHg)':p.sbp,'Heart rate (bpm)':p.hr,'CrCl (mL/min)':p.crcl,'Burden of illness':p.burden,'COPD':yes(p.copd),'Previous fungal infection':yes(p.priorFungal),'Dehydration needing IV fluids':yes(p.dehydration),'Setting at fever onset':p.setting,'Mucositis grade 3–4':yes(p.mucositis),'Pneumonia / complex infection':yes(p.pneumonia),'Catheter infection':yes(p.lineInfection),'Expected ANC <0.1 for ≥7 days':yes(p.prolonged),'AST/ALT >5× ULN':null,'New confusion / neuro change':yes(p.confusion),'MASCC score':r.mascc.score,'Final risk group':risk(r),_savedAt:c.simulationStartedAt,_actionCaseId:c.id,_actionInput:{...p},_syntheticOnly:true};}
+function risk(r){return r.risk.startsWith('High')?'High':r.risk==='Low risk candidate'?'Low':'Unknown'}
+const codeMap={'Haemoglobin':'Hemoglobin','CrCl (verified dosing estimate)':'CrCl','Creatinine, previous day':'PreviousCreatinine','Urine WBC':'UrineWBC','Serum galactomannan index':'Galactomannan'};
+function results(c,elapsed=0){const pid=patientId(c),anchor=Date.parse(c.simulationStartedAt),iso=m=>new Date(anchor+m*60000).toISOString(),rows=[];
+ const make=(key,code,value,unit,at,extra={})=>({eventId:'a2a-registry:'+c.id+':'+key,patientId:pid,accession:pid+'-'+code,code,value,unit,observedAt:iso(at),issuedAt:iso(at),availableAtMinutes:at,status:'final',source:'A2A fictional fixture · +'+at+' min (simulation)',_actionRegistry:true,...extra});
+ for(const [i,l]of c.labs.entries())if(l.at<=elapsed&&typeof l.value==='number')rows.push(make('lab-'+i,codeMap[l.name]||l.name,l.value,l.unit,l.at,{testName:l.name,note:l.note||''}));
+ for(const [code,key,unit]of [['temperature','temp','°C'],['systolicBP','sbp','mmHg'],['heartRate','hr','bpm'],['SpO2','spo2','%']])if(typeof c.input[key]==='number')rows.push(make('vital-'+code,code,c.input[key],unit,0,{method:c.input.method}));
+ rows.push(make('culture-pending','culture','Pending','',0,{status:'preliminary',specimen:'Current culture · collection not documented',organism:null,collectionTimeUnknown:true,reportText:'No current culture identification or susceptibility is available at presentation.'}));
+ for(const [i,m]of c.cultures.entries())if(m.at<=elapsed){const final=Object.keys(m.ast||{}).length>0||/final|5 days/i.test(m.result);rows.push(make('culture-'+i,'culture',m.organism||/gram[- ](?:positive|negative)|yeast|bacilli|cocci/i.test(m.result)?'Positive':final?'Negative':'Pending','',m.at,{status:final?'final':'preliminary',specimen:m.specimen,organism:m.organism,reportText:m.result,collectionTimeUnknown:true,susceptibilities:Object.entries(m.ast||{}).map(([agent,interpretation])=>({agent,interpretation}))}));}
+ return rows;
+}
+function reconcile(existing,cases,times={}){const generated=cases.flatMap(c=>results(c,times[c.id]||0)),ids=new Set(generated.map(r=>r.eventId));return [...existing.filter(r=>!r._actionRegistry&&!ids.has(r.eventId)),...generated];}
+const api={patientId,patient,results,reconcile,risk};root.FNActionRegistry=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window==='undefined'?globalThis:window);
