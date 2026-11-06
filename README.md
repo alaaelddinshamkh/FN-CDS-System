@@ -224,3 +224,9 @@ Live PostgreSQL integration checks use mocked identity/email/push transport and 
 ## Dynamic reassessment
 
 Patient-linked changes, accountable actions, specimen-to-result follow-up, versioned local protocols and separate recorded-use/scripted-validation measures are described in [DYNAMIC_REASSESSMENT.md](DYNAMIC_REASSESSMENT.md). Ten prefilled New Assessment examples and all existing registry identities link to this workflow.
+
+### Returning to an open browser tab
+
+Focus, visibility and reconnect events revalidate the existing HttpOnly session in the background. Valid staff sessions keep the current route, selected patient, scroll position and in-progress form DOM without opening My account or rerendering the workspace. Concurrent tab-return checks share one request; sign-out and explicit account actions supersede stale responses. Confirmed expiry, suspension or role changes still block or redirect access. Network failures and identity-provider throttling/outages are retryable, not evidence of sign-out; protected APIs continue to enforce authorization. Existing session lifetime is unchanged.
+
+Regression checks: `node --test tests/tab-continuity.test.cjs`.

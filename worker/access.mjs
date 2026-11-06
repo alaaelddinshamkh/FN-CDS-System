@@ -8,7 +8,7 @@ async function accessProvider(env,path,method='GET',data,token){return (env.AUTH
 async function accessPrincipal(request,env){
  if(!env.SUPABASE_URL||!env.SUPABASE_PUBLISHABLE_KEY||!env.FN_SUPERADMIN_UID||!env.DB)return null;
  const token=(request.headers.get('Cookie')||'').split(';').map(s=>s.trim()).find(s=>s.startsWith('__Host-fn_session='))?.slice(18);if(!token||token.length>8000)return null;
- const r=await accessProvider(env,'user','GET',null,token);if(!r.ok)return null;const u=await r.json();if(!u.id||!u.email_confirmed_at)return null;
+ const r=await accessProvider(env,'user','GET',null,token);if(r.status===429||r.status>=500)throw Error('Identity service temporarily unavailable');if(!r.ok)return null;const u=await r.json();if(!u.id||!u.email_confirmed_at)return null;
  const owner=u.id===env.FN_SUPERADMIN_UID;
  if(owner)return {id:u.id,user:'sb:'+u.id,email:u.email,role:'superadmin',status:'approved',owner:true,token};
  const account=await env.DB.prepare('SELECT * FROM access_accounts WHERE id=?').bind(u.id).first();return {id:u.id,user:'sb:'+u.id,email:u.email,owner:false,account,role:account?.role,status:account?.status||'unregistered',token,metadata:u.user_metadata||{}};
