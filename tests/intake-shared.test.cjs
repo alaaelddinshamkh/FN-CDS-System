@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),intake=require('../dist/intake-core.js'),sample=require('../dist/action-cases.json')[0];
+(async()=>{const {teamApi}=await import('../worker/team.mjs'),{DB}=await import('../scripts/d1-preview.mjs');
+async function call(path,method='GET',data,user='admin'){const r=await teamApi(new Request('https://fn.test/api/team/'+path,{method,headers:{'oai-authenticated-user-id':user,Origin:'https://fn.test','Content-Type':'application/json'},body:data?JSON.stringify(data):undefined}),{DB});return {status:r.status,data:await r.json()}}
+const t=await call('workspaces','POST',{name:'Entered Assessment Test',label:'Synthetic administrator',syntheticOnly:true});const q='?workspace='+t.data.id;
+const c=intake.makeCase('USR-abcdef0123456789abcdef01',sample.input,{alias:'Entered Test',triageAt:new Date(Date.now()-300000).toISOString()}),visitId=crypto.randomUUID();
+const body={caseCode:c.patientId,requestKey:visitId,syntheticOnly:true,triageAt:c.intakeContext.triageAt,measurements:{},actionCaseId:c.id,actionInput:c.input,actionCase:{id:c.id,intakeContext:c.intakeContext}};
+assert.equal((await call('visits'+q,'POST',{...body,actionCase:{id:'USR-0123456789abcdef01234567'}},'admin')).status,400);assert.equal((await call('visits'+q,'POST',body,'outsider')).status,403);assert.equal((await call('visits'+q,'POST',body)).status,201);
+let data=(await call('workspace'+q)).data,v=data.visits[0];assert.equal(v.snapshot.a2a.caseMeta.intakeContext.alias,'Entered Test');assert.equal(v.snapshot.a2a.input.anc,.3);assert.equal(v.snapshot.a2a.caseMeta.intakeContext.triageAt,v.snapshot.triageAt);assert.equal(v.snapshot.dose,null);
+let edit={id:visitId,revision:1,operationKey:crypto.randomUUID(),input:{...c.input,sbp:80},exclusions:[],actionCase:{id:c.id,intakeContext:{...c.intakeContext,alias:'Updated Training Label'}}};assert.equal((await call('assessment-action'+q,'POST',edit)).status,200);
+assert.equal((await call('assessment-action'+q,'POST',{...edit,operationKey:crypto.randomUUID()})).status,409);data=(await call('workspace'+q)).data;v=data.visits[0];assert.equal(v.snapshot.a2a.caseMeta.intakeContext.alias,'Updated Training Label');assert.equal(v.snapshot.a2a.input.sbp,80);assert.equal(v.stage,'physician_review');assert.equal(v.snapshot.plan,null);
+assert.equal((await call('transition'+q,'POST',{id:visitId,revision:2,operationKey:crypto.randomUUID(),action:'submit_plan',plan:'Reviewed entered training assessment',note:'Pharmacy review required'})).status,200);
+console.log('PASS: entered assessment shared persistence, server metadata/input validation, no cross-workspace access, edited context and stale revision protection, normal physician review handoff');
+})().catch(e=>{console.error(e);process.exit(1)});

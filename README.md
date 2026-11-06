@@ -218,3 +218,5 @@ Live PostgreSQL integration checks use mocked identity/email/push transport and 
 ## Patient assessment to action
 
 20 fictional adult FN scenarios, structured risk explanation, draft initial/renal dosing references, timed cultures and shared role handoff are documented in [ASSESSMENT_TO_ACTION.md](ASSESSMENT_TO_ACTION.md). Clinical validation remains pending.
+
+**New assessment** opens an unknown-first observation entry form with automatically calculated MASCC, suggested pathway, required-now work-up, first-hour clock and reviewable treatment references. Entered cases remain separate from the 20 teaching fixtures and can continue through the shared role handoff.

@@ -24,8 +24,8 @@ function calculate(p,scenario={},elapsed=0){
  if(score.score!==null&&score.score<21)reasons.push('MASCC below 21');
  for(const [k,label]of [['prolonged','Expected profound prolonged neutropenia'],['mucositis','Severe mucositis'],['pneumonia','Pneumonia / complex infection'],['lineInfection','Suspected catheter infection'],['abdomen','Possible neutropenic enterocolitis'],['majorComorbidity','Significant comorbidity / organ impairment']])if(p[k]===true)reasons.push(label);
  if(p.mrsa===true)reasons.push('Documented MRSA concern requires individualized infection review');if(p.renalState==='Changing / AKI')reasons.push('Changing renal function / AKI');
- if(p.setting==='Inpatient')reasons.push('Inpatient at fever onset');if(p.dialysis!=='None')reasons.push('Renal replacement therapy');if(numeric(p.crcl,0,250)&&p.crcl<30)reasons.push('Severe renal impairment');
- if(p.resistance&&p.resistance!=='None')reasons.push('Documented resistant-organism history requires individualized review');
+ if(p.setting==='Inpatient')reasons.push('Inpatient at fever onset');if(['Intermittent HD','CRRT'].includes(p.dialysis))reasons.push('Renal replacement therapy');if(numeric(p.crcl,0,250)&&p.crcl<30)reasons.push('Severe renal impairment');
+ if(['ESBL','KPC','Other'].includes(p.resistance))reasons.push('Documented resistant-organism history requires individualized review');
  const risk=unstable?'High risk + urgent instability':fn!=='Criteria supported'?'Incomplete / urgent assessment':reasons.length?'High risk':missing.length?'Incomplete / urgent assessment':'Low risk candidate';
  const outpatient=risk==='Low risk candidate'&&p.category==='Solid tumour'&&p.setting==='Outpatient'&&p.oralIntake===true&&p.support===true&&p.transport===true&&p.followup===true&&p.fqProphylaxis===false&&p.allergy==='None'&&p.renalState==='Stable'&&p.crcl>60;
  const needReview=missing.length>0||p.renalState!=='Stable'||fn!=='Criteria supported'||!numeric(p.age,18,120)||['SCAR','Unknown'].includes(p.allergy)||!['None','ESBL','KPC'].includes(p.resistance);
