@@ -1,0 +1,1554 @@
+[
+  {
+    "id": "DYN-01",
+    "enteredId": "USR-000000000000000000000001",
+    "name": "Rehab Osama",
+    "title": "Low risk to new hypotension",
+    "history": "Breast cancer after cycle 2; mild fatigue, no focal symptoms. Lives with caregiver 20 minutes from assessment unit.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Breast cancer",
+      "category": "Solid tumour",
+      "chemo": "Doxorubicin/cyclophosphamide",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 108,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 33,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 30,
+        "label": "New hypotension",
+        "patch": {
+          "sbp": 82
+        },
+        "result": null
+      },
+      {
+        "at": 90,
+        "label": "Reassessed perfusion; ongoing review",
+        "patch": {
+          "sbp": 105,
+          "burden": "Moderate"
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "Low risk candidate",
+    "expectedAfter": [
+      "High risk + urgent instability",
+      "High risk"
+    ],
+    "reviewDelayMinutes": 4,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-02",
+    "enteredId": "USR-000000000000000000000002",
+    "name": "Safaa Magdy",
+    "title": "Stable low-risk reassessment",
+    "history": "Colorectal cancer following FOLFOX. Independent, reliable transport and daily review available.",
+    "input": {
+      "age": 64,
+      "sex": "Female",
+      "weight": 66,
+      "height": 168,
+      "cancer": "Colorectal cancer",
+      "category": "Solid tumour",
+      "chemo": "FOLFOX",
+      "chemoDay": 10,
+      "temp": 38.4,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 111,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.62,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 34,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 60,
+        "label": "ANC updated; stable clinical status",
+        "patch": {
+          "anc": 0.2
+        },
+        "result": null
+      },
+      {
+        "at": 240,
+        "label": "Observed stable reassessment",
+        "patch": {
+          "temp": 38.3
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "Low risk candidate",
+    "expectedAfter": [
+      "Low risk candidate",
+      "Low risk candidate"
+    ],
+    "reviewDelayMinutes": 7,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-03",
+    "enteredId": "USR-000000000000000000000003",
+    "name": "Mona Tarek",
+    "title": "CKD: verified clearance falls",
+    "history": "Known CKD with stable creatinine on three measurements. Renal-dose review required before continuing therapy.",
+    "input": {
+      "age": 61,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Ovarian cancer",
+      "category": "Solid tumour",
+      "chemo": "Carboplatin/paclitaxel",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 45,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 120,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.45,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 45,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 37,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 60,
+        "label": "Verified dosing clearance 20 mL/min",
+        "patch": {
+          "crcl": 20
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk"
+    ],
+    "reviewDelayMinutes": 5,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-04",
+    "enteredId": "USR-000000000000000000000004",
+    "name": "Hala Sherif",
+    "title": "Renal trajectory becomes uncertain",
+    "history": "Stable advanced CKD, not on dialysis. No beta-lactam allergy; no recent cefepime dose.",
+    "input": {
+      "age": 70,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "Bladder cancer",
+      "category": "Solid tumour",
+      "chemo": "Gemcitabine-based regimen",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 20,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 123,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 2.89,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 20,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 38,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 90,
+        "label": "Changing renal function; repeat estimate withheld",
+        "patch": {
+          "renalState": "Changing / AKI",
+          "crcl": null
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk"
+    ],
+    "reviewDelayMinutes": 18,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-05",
+    "enteredId": "USR-000000000000000000000005",
+    "name": "Adham Adel",
+    "title": "Pneumonia: oxygen improves, culture arrives",
+    "history": "New productive cough and respiratory distress, new oxygen requirement; chest imaging supports pneumonia.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "Lung cancer",
+      "category": "Solid tumour",
+      "chemo": "Docetaxel",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 104,
+      "dbp": 62,
+      "hr": 126,
+      "rr": 32,
+      "spo2": 87,
+      "newHypoxia": true,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Outpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": true,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 135,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 133,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 42,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": 3.1,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 120,
+        "label": "Oxygenation improved, pneumonia remains",
+        "patch": {
+          "spo2": 95,
+          "rr": 22,
+          "newHypoxia": false
+        },
+        "result": null
+      },
+      {
+        "at": 1440,
+        "label": "MRSA respiratory report",
+        "patch": {},
+        "result": {
+          "testId": "culture-main",
+          "accession": "CULT-05",
+          "code": "culture",
+          "status": "final",
+          "value": "Positive",
+          "organism": "MRSA",
+          "ast": {
+            "vancomycin": "S",
+            "oxacillin": "R"
+          },
+          "text": "Fictional respiratory culture; ID review required"
+        }
+      }
+    ],
+    "expectedInitial": "High risk + urgent instability",
+    "expectedAfter": [
+      "High risk",
+      "High risk"
+    ],
+    "reviewDelayMinutes": 6,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-06",
+    "enteredId": "USR-000000000000000000000006",
+    "name": "Anas Fathi",
+    "title": "Line infection: amended microbiology",
+    "history": "Rigors during line access with tender erythematous exit site. Prior MRSA bloodstream isolate documented two months ago.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "ALL",
+      "category": "Haematological",
+      "chemo": "Consolidation chemotherapy",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.05,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": true,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": true,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.55,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.05,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 8.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 138,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 134,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 43,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 720,
+        "label": "Blood culture preliminary growth",
+        "patch": {},
+        "result": {
+          "testId": "culture-main",
+          "accession": "CULT-06",
+          "code": "culture",
+          "status": "preliminary",
+          "value": "Positive",
+          "organism": "Staphylococcus aureus",
+          "ast": {},
+          "text": "Identification and AST pending"
+        }
+      },
+      {
+        "at": 1440,
+        "label": "Final MRSA report",
+        "patch": {},
+        "result": {
+          "testId": "culture-main",
+          "accession": "CULT-06",
+          "code": "culture",
+          "status": "final",
+          "value": "Positive",
+          "organism": "MRSA",
+          "ast": {
+            "vancomycin": "S",
+            "oxacillin": "R"
+          },
+          "text": "Fictional final report"
+        }
+      },
+      {
+        "at": 1500,
+        "label": "Amended report: MSSA",
+        "patch": {},
+        "result": {
+          "testId": "culture-main",
+          "accession": "CULT-06",
+          "code": "culture",
+          "status": "corrected",
+          "value": "Positive",
+          "organism": "MSSA",
+          "ast": {
+            "vancomycin": "S",
+            "oxacillin": "S"
+          },
+          "text": "Fictional corrected phenotype; prior decision must be reviewed"
+        }
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk",
+      "High risk",
+      "High risk"
+    ],
+    "reviewDelayMinutes": 8,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-07",
+    "enteredId": "USR-000000000000000000000007",
+    "name": "Eyad Khaled",
+    "title": "Allergy history changes the draft",
+    "history": "Documented penicillin anaphylaxis with bronchospasm. No ceftazidime allergy or SCAR; clinician verifies allergy history.",
+    "input": {
+      "age": 45,
+      "sex": "Male",
+      "weight": 75,
+      "height": 180,
+      "cancer": "Lymphoma",
+      "category": "Haematological",
+      "chemo": "R-CHOP",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.3,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "Moderate",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": false,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "Immediate",
+      "allergyDrug": "Penicillin",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.8,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.3,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 147,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 1.04,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.2,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 46,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 30,
+        "label": "Verified history of severe cutaneous drug reaction",
+        "patch": {
+          "allergy": "SCAR",
+          "allergyDrug": "Cefepime"
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk"
+    ],
+    "reviewDelayMinutes": 4,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-08",
+    "enteredId": "USR-000000000000000000000008",
+    "name": "Dalia Nasser",
+    "title": "ESBL history, new KPC mechanism",
+    "history": "Previous ESBL E. coli bacteremia 30 days ago, susceptible to meropenem; recent susceptibility report available at triage.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Consolidation",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.06,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": true,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "ESBL",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.56,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.06,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 135,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 44,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 1440,
+        "label": "KPC mechanism reported; existing reference requires specialist review",
+        "patch": {
+          "resistance": "KPC"
+        },
+        "result": {
+          "testId": "culture-main",
+          "accession": "CULT-08",
+          "code": "culture",
+          "status": "final",
+          "value": "Positive",
+          "organism": "KPC Klebsiella pneumoniae",
+          "ast": {
+            "meropenem": "R",
+            "ceftazidime-avibactam": "S"
+          },
+          "text": "Fictional confirmed mechanism and susceptibility; ID/pharmacy review required"
+        }
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk"
+    ],
+    "reviewDelayMinutes": 21,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-09",
+    "enteredId": "USR-000000000000000000000009",
+    "name": "Asmaa Hatem",
+    "title": "Breakthrough fever with new hypoxia",
+    "history": "AML induction with profound prolonged neutropenia while taking levofloxacin prophylaxis. Oral fluoroquinolone-based outpatient therapy is unsuitable.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.02,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": true,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": false,
+      "persistentDays": 0,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.52,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.02,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 9.6,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 136,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 3.8,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 50,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      }
+    ],
+    "events": [
+      {
+        "at": 45,
+        "label": "New hypoxia",
+        "patch": {
+          "spo2": 88,
+          "newHypoxia": true,
+          "rr": 32
+        },
+        "result": null
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk + urgent instability"
+    ],
+    "reviewDelayMinutes": 3,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  },
+  {
+    "id": "DYN-10",
+    "enteredId": "USR-00000000000000000000000a",
+    "name": "Yara Wael",
+    "title": "Persistent fever on existing therapy",
+    "history": "High-risk AML patient remains febrile despite 5 days of cefepime. Last dose 2 hours before this reassessment; no duplicate initial dose is due. Fungal work-up is being arranged.",
+    "input": {
+      "age": 45,
+      "sex": "Female",
+      "weight": 70,
+      "height": 168,
+      "cancer": "AML",
+      "category": "Haematological",
+      "chemo": "Induction",
+      "chemoDay": 9,
+      "temp": 38.7,
+      "method": "Oral",
+      "feverHours": 2,
+      "anc": 0.01,
+      "expectedDecline": false,
+      "sbp": 118,
+      "dbp": 72,
+      "hr": 104,
+      "rr": 18,
+      "spo2": 97,
+      "newHypoxia": false,
+      "confusion": false,
+      "burden": "None/mild",
+      "copd": false,
+      "priorFungal": false,
+      "dehydration": false,
+      "setting": "Inpatient",
+      "prolonged": true,
+      "mucositis": false,
+      "pneumonia": false,
+      "lineInfection": false,
+      "abdomen": false,
+      "majorComorbidity": false,
+      "crcl": 95,
+      "renalState": "Stable",
+      "dialysis": "None",
+      "dialysisToday": false,
+      "allergy": "None",
+      "allergyDrug": "None",
+      "fqProphylaxis": false,
+      "oralIntake": true,
+      "support": true,
+      "transport": true,
+      "followup": true,
+      "resistance": "None",
+      "mrsa": false,
+      "weightVerified": true,
+      "priorAntibiotic": true,
+      "persistentDays": 5,
+      "localProtocol": "Training reference; local approval pending"
+    },
+    "labs": [
+      {
+        "name": "WBC",
+        "value": 0.51,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "ANC",
+        "value": 0.01,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Haemoglobin",
+        "value": 10.1,
+        "unit": "g/dL",
+        "at": 0
+      },
+      {
+        "name": "Platelets",
+        "value": 22,
+        "unit": "×10⁹/L",
+        "at": 0
+      },
+      {
+        "name": "Creatinine",
+        "value": 0.83,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "CrCl (verified dosing estimate)",
+        "value": 95,
+        "unit": "mL/min",
+        "at": 0
+      },
+      {
+        "name": "Sodium",
+        "value": 137,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "Potassium",
+        "value": 4.0,
+        "unit": "mmol/L",
+        "at": 0
+      },
+      {
+        "name": "ALT",
+        "value": 51,
+        "unit": "U/L",
+        "at": 0
+      },
+      {
+        "name": "Bilirubin",
+        "value": 0.8,
+        "unit": "mg/dL",
+        "at": 0
+      },
+      {
+        "name": "Lactate",
+        "value": null,
+        "unit": "mmol/L",
+        "at": 15,
+        "note": "Only requested when clinically indicated"
+      },
+      {
+        "name": "Serum galactomannan index",
+        "value": 1.4,
+        "unit": "index; lab-specific interpretation",
+        "at": 360
+      }
+    ],
+    "events": [
+      {
+        "at": 60,
+        "label": "New verified renal estimate during ongoing treatment",
+        "patch": {
+          "crcl": 25
+        },
+        "result": null
+      },
+      {
+        "at": 120,
+        "label": "Fungal marker available: individualized ID assessment",
+        "patch": {},
+        "result": {
+          "testId": "fungal-marker",
+          "accession": "GM-10",
+          "code": "Galactomannan",
+          "status": "final",
+          "value": 1.4,
+          "unit": "index",
+          "text": "Fictional laboratory index; interpret with imaging and clinical findings; no automatic antifungal"
+        }
+      }
+    ],
+    "expectedInitial": "High risk",
+    "expectedAfter": [
+      "High risk",
+      "High risk"
+    ],
+    "reviewDelayMinutes": 12,
+    "anchor": "2026-10-25T08:00:00Z",
+    "syntheticOnly": true
+  }
+]

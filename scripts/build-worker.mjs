@@ -1,4 +1,9 @@
 import fs from 'node:fs';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const evidence=require('../dist/dynamic-validation.js').cohort(JSON.parse(fs.readFileSync('dist/dynamic-examples.json','utf8')));
+if(!evidence.pass)throw Error('Dynamic scenario expectation failed; publication blocked');
+fs.writeFileSync('dist/dynamic-validation.json',JSON.stringify(evidence,null,2)+'\n');
 const assets={};const types={html:'text/html; charset=utf-8',js:'application/javascript',css:'text/css',json:'application/json',svg:'image/svg+xml',png:'image/png',webmanifest:'application/manifest+json'};
 for(const name of fs.readdirSync('dist'))if(fs.statSync('dist/'+name).isFile()){const ext=name.split('.').at(-1);assets['/'+name]={type:types[ext]||'application/octet-stream',data:fs.readFileSync('dist/'+name).toString('base64')}}
 const output=`import {accessApi,accessGuard} from './worker/access.mjs';

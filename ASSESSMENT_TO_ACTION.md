@@ -49,7 +49,7 @@ Sources and dose-specific links are in `dist/action-core.js` and displayed besid
 
 ## Verification and extension
 
-`node --test tests/*.test.cjs` runs 26 test files. New checks cover all 20 expected pathways, dose boundaries, missing-data and allergy guards, objective instability, no future microbiology leakage, shared input validation, role isolation, stale revisions, review invalidation and completed-dose preservation. These checks verify software behavior; they are not clinical validation.
+`node --test tests/*.test.cjs` runs 28 test files. New checks cover all 20 expected pathways, dose boundaries, missing-data and allergy guards, objective instability, no future microbiology leakage, shared input validation, role isolation, stale revisions, review invalidation and completed-dose preservation. These checks verify software behavior; they are not clinical validation.
 
 - `dist/action-cases.json`: fictional case inputs, timed results, microbiology and teaching events.
 - `dist/action-core.js`: shared pure decision logic and reference links, used by browser and Worker.
@@ -80,3 +80,7 @@ Triage time is separate from reported fever onset. Fever duration is verified se
 Saving creates a `USR-…` entered assessment with the same core risk/dose logic and a stable `SIM-USR-…` registry ID. It has no invented laboratory values, cultures, or teaching timeline. It can be reopened, revised, exported or saved to the existing shared role workflow. Role authorization, optimistic revision checks, approval invalidation, completed-visit protection and private Supabase storage are retained. Shared encounter context and triage use one saved time. Local input/assessment storage and explicitly saved team visits remain separate.
 
 Implementation: `dist/intake-core.js` (unknown-first input, context validation, task track), `dist/intake-ui.js` / `.css` (live form), and small registry/team extensions. `tests/intake*.test.cjs` verifies missing-data guards, independent stable/unstable expectations, clocks, existing treatment, no fabricated results, persistence, validation and stale revisions. This software verification is not clinical validation.
+
+## Continuous follow-up
+
+Open **Dynamic reassessment** from a patient record, or choose **10 worked examples** in New Assessment. See [DYNAMIC_REASSESSMENT.md](DYNAMIC_REASSESSMENT.md) for protocol governance, action/test lifecycles, role-enforced shared use and measurement definitions.
