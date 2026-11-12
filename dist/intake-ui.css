@@ -5,3 +5,14 @@
 .a2a-entered .a2a-library{display:none}
 
 @media(max-width:700px){#app:has(.intake-layout)>.heading{flex-direction:column;align-items:flex-start;gap:12px}#app:has(.intake-layout)>.heading>.btn{font-size:12px}}
+
+/* Invalid and unverified fields: color plus explicit accessible text. */
+.intake-field.intake-invalid{color:#a51d2d;font-weight:600;scroll-margin-top:24px}
+.intake-field.intake-invalid input,.intake-field.intake-invalid select{border:2px solid #bf2538;background:#fff3f4;color:#69202b}
+.intake-field-error{font-size:12px;line-height:1.5;color:#a51d2d;font-weight:500}
+#intake-validation{border:1px solid #bf2538;border-left:4px solid #bf2538;border-radius:10px;background:#fff3f4;color:#8c1e2c;padding:18px;margin-bottom:18px}
+#intake-validation[hidden]{display:none}
+#intake-validation p{font-size:12px;line-height:1.6}
+#intake-validation ul{padding-left:18px;max-height:220px;overflow:auto}
+#intake-validation button{border:0;background:transparent;color:#8c1e2c;text-align:left;text-decoration:underline;padding:5px 0;font:inherit;font-size:12px;cursor:pointer}
+#intake-validation button:focus-visible,.intake-invalid :focus-visible{outline:3px solid #a51d2d;outline-offset:3px}

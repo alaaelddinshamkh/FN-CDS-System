@@ -1,5 +1,8 @@
 import '../dist/action-core.js';
 import '../dist/intake-core.js';
+import '../dist/clinical-guidelines.js';
+import '../dist/antibiotic-orders-core.js';
+import '../dist/antibiotic-selection-core.js';
 import '../dist/dynamic-core.js';
 const json=(v,status=200)=>Response.json(v,{status,headers:{'Cache-Control':'no-store'}});
 export async function dynamicApi(request,{db,team,user,membership,route}){

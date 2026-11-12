@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const w=require('../dist/workbook-data.json'),core=require('../dist/workbook-core.js'),intake=require('../dist/intake-core.js'),action=require('../dist/action-core.js');
+assert.equal(w.patients.length,200);assert.equal(w.scenarios.length,21);assert.equal(Object.keys(w.sheets).length,12);
+const ids=[...w.patients.map(p=>p['Patient ID']),...w.scenarios.map(c=>c.patientId)];assert.equal(new Set(ids).size,221);
+for(const p of w.patients){const r=core.assessment(p,w.index);assert.equal(r.score,p['MASCC score']);assert.equal(r.risk,p['Final risk group']);const v=core.prefill(p,intake.blank());assert.equal(v.allergy,'Unknown');assert.equal(v.method,'Unknown');assert.equal(v.renalState,'Unknown');const c=intake.makeCase('USR-'+w.sourceKeys[p['Patient ID']],v,{sourcePatientId:p['Patient ID']});assert.equal(c.patientId,p['Patient ID']);assert.equal(c.labs.length,0);assert.equal(c.cultures.length,0);assert.equal(c.intakeContext.triageAt,null);}
+for(const c of w.scenarios){const r=core.assessment(c,w.index);assert.equal(r.score,c['Exp. MASCC']);assert.equal(r.risk,c['Exp. risk']);assert.equal(c.steps.length,9);const v=core.prefill(c,intake.blank());action.cleanInput(v);assert.equal(v.temp,null,'Narrative must not silently become structured findings');assert.equal(v.anc,null);if(c['Penicillin allergy']==='Severe (anaphylaxis)')assert.equal(v.allergy,'Immediate');if(c['Penicillin allergy']==='Non-severe (rash)')assert.equal(v.allergy,'Unknown','Reaction needs verification, never assume no allergy');}
+const events=[...w.patients.flatMap(p=>core.baseline(p,p['Patient ID'],w.version)),...w.scenarios.flatMap(c=>core.baseline(c,c.patientId,w.version))];assert.equal(new Set(events.map(r=>r.eventId)).size,events.length);assert.ok(events.every(r=>ids.includes(r.patientId)&&r.observedAt===null&&r.issuedAt===null&&r._workbookBaseline));assert.ok(events.every(r=>r.code!=='culture'));
+const p={...w.patients[0],'Systolic BP (mmHg)':90};assert.equal(core.assessment(p,w.index).unstable,true);
+assert.equal(core.mascc({...core.normalized(w.patients[0]),copd:null},w.index).score,null);
+assert.throws(()=>intake.cleanContext({sourcePatientId:'../../unknown'}));
+assert.ok(Object.values(w.sheets.Scenarios.formulas).some(s=>s.includes('MASCC Index')));
+assert.match(fs.readFileSync('dist/workbook-ui.js','utf8'),/not clinical validation/);
+console.log('PASS: exact 200-patient and 21-scenario MASCC/risk parity, 221 canonical identities, preserved formulas/pathway steps, unknown-first prefill, safe allergy mapping, patient-linked results without fabricated culture/timestamps');
