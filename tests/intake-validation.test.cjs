@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),intake=require('../dist/intake-core.js'),samples=require('../dist/action-cases.json');
+const now=Date.parse('2026-11-06T08:00:00Z'),low=structuredClone(samples[0].input),ctx={triageAt:'2026-11-06T07:30:00Z'};
+assert.deepEqual(intake.validation(low,ctx,now),[]);
+let issues=intake.validation({...low,temp:100,sbp:500,hr:0},{...ctx,onsetAt:'2026-11-07T08:00:00Z'},now);
+for(const field of ['temp','sbp','hr','ctx_onsetAt'])assert.equal(issues.find(x=>x.field===field)?.kind,'invalid');
+issues=intake.validation({...low,age:null,copd:null,priorAntibiotic:true},{},now);
+for(const field of ['age','copd','ctx_triageAt','ctx_priorRegimen','ctx_lastDoseAt'])assert.equal(issues.find(x=>x.field===field)?.kind,'verification');
+assert.ok(!issues.some(x=>x.field==='ctx_alias'||x.field==='ctx_onsetAt'||x.field==='ctx_history'));
+issues=intake.validation({...low,allergy:'None',allergyDrug:'Penicillin'},ctx,now);
+for(const field of ['allergy','allergyDrug'])assert.match(issues.find(x=>x.field===field).message,/must agree/);
+assert.equal(intake.validation({...low,allergy:'Immediate',allergyDrug:'Penicillin'},ctx,now).length,0);
+assert.throws(()=>intake.makeCase('USR-0123456789abcdef01234567',{...low,temp:100},ctx,now));
+assert.ok(intake.validation(intake.blank(),{},now).length>10);
+console.log('PASS: simultaneous field errors, future date, conditional missing information, optional context, allergy conflicts, correction clearing and unchanged save validation');

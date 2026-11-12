@@ -20,7 +20,7 @@ function harness({mobile=false,role='physician'}={}){
  let response={...approved,role},failure=null,pending=null;
  context.fetch=async url=>{calls.push(url);if(url.endsWith('/session')){if(pending)return pending;if(failure)throw failure;return Response.json(response,{status:response?200:401})}if(url.endsWith('/request-summary'))return Response.json({pending:0});return Response.json({ok:true})};
  context.window=context;vm.runInNewContext(source,context);
- return {context,screen,aside,main,calls,events,setResponse:value=>response=value,setFailure:value=>failure=value,setPending:value=>pending=value,async ready(){await settle();if(!mobile)screen.querySelector('#open-clinical').onclick();assert.equal(screen.hidden,true)},fire(type,target='window'){return events[target][type]()}};
+ return {context,screen,aside,main,calls,events,setResponse:value=>response=value,setFailure:value=>failure=value,setPending:value=>pending=value,async ready(){await settle();assert.equal(screen.hidden,true)},fire(type,target='window'){return events[target][type]()}};
 }
 test('desktop and mobile tab returns preserve the workspace, draft and scroll without account-screen flashes',async()=>{
  for(const mobile of [false,true])for(const role of ['physician','superadmin']){
@@ -57,4 +57,8 @@ test('identity-provider outages are retryable and are not reported as expired se
   assert.equal((await accessApi(request,env)).status,503);
   await assert.rejects(()=>accessGuard(request,env),/temporarily unavailable/);
  }
+});
+
+test('approved staff enter the app directly and account has one application entry',async()=>{
+ const h=harness();await h.ready();assert.equal(h.screen.hidden,true);assert.equal(h.aside.inert,false);await h.context.fnAccount.load();assert.equal(h.screen.hidden,false);assert.match(h.screen.innerHTML,/Open application/);assert.doesNotMatch(h.screen.innerHTML,/Open team workspace|Open synthetic clinical workspace/);h.screen.querySelector('#open-application').onclick();assert.equal(h.screen.hidden,true);
 });

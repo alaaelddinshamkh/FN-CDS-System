@@ -21,25 +21,25 @@ async function call(path,method='GET',data,token='owner',origin){const r=await a
 const form={...meta,email:'fresh@example.test',password:'do-not-store-12345'};
 assert.equal((await call('signup','POST',{...form,requestedRole:'superadmin'})).status,400);assert.equal(signups,0);
 assert.equal((await call('signup','POST',form,'owner','https://evil.test')).status,403);
-const registered=await call('signup','POST',form);assert.equal(registered.status,201);assert.equal(registered.data.requestSubmitted,true);assert.equal(registered.data.emailConfirmationRequired,true);assert.equal(registered.data.access_token,undefined);assert.equal(registered.headers.get('set-cookie'),null);
-assert.equal(pushes,1);const stored=await DB.prepare('SELECT * FROM access_accounts WHERE id=?').bind(fresh).first();assert.equal(stored.status,'pending');assert.equal(stored.role,null);assert.equal(stored.username,meta.username);assert.ok(!JSON.stringify(stored).includes(form.password));
-assert.equal((await call('request-summary')).data.pending,1);assert.equal((await call('requests')).data.accounts[0].id,fresh);
-assert.equal((await call('session','GET',null,'fresh')).status,401);confirmFresh=true;assert.equal((await call('session','GET',null,'fresh')).data.status,'pending');
+const registered=await call('signup','POST',form);assert.equal(registered.status,201);assert.equal(registered.data.registered,true);assert.equal(registered.data.emailConfirmationRequired,true);assert.equal(registered.data.access_token,undefined);assert.equal(registered.headers.get('set-cookie'),null);
+assert.equal(pushes,1);const stored=await DB.prepare('SELECT * FROM access_accounts WHERE id=?').bind(fresh).first();assert.equal(stored.status,'approved');assert.equal(stored.role,'nurse');assert.equal(stored.username,meta.username);assert.ok(!JSON.stringify(stored).includes(form.password));
+assert.equal((await call('request-summary')).data.pending,0);assert.equal((await call('requests')).data.accounts[0].id,fresh);
+assert.equal((await call('session','GET',null,'fresh')).status,401);confirmFresh=true;assert.equal((await call('session','GET',null,'fresh')).data.status,'approved');
 assert.equal((await call('request-summary','GET',null,'fresh')).status,403);
-assert.equal((await accessGuard(new Request('https://fn.test/api/team/session',{headers:{Cookie:'__Host-fn_session=fresh'}}),env)).response.status,403);
+assert.ok((await accessGuard(new Request('https://fn.test/api/team/session',{headers:{Cookie:'__Host-fn_session=fresh'}}),env)).request);
 assert.equal((await call('signup','POST',form)).status,409);assert.equal(pushes,1);assert.equal(signups,1);
 // A concealed duplicate identity must not create a ghost request or change the real account.
-signupUser={...signupUser,id:'00000000-0000-4000-8000-000000000099',identities:[]};assert.equal((await call('signup','POST',{...form,username:'different.alias'})).data.requestSubmitted,undefined);assert.equal((await call('request-summary')).data.pending,1);
+signupUser={...signupUser,id:'00000000-0000-4000-8000-000000000099',identities:[]};assert.equal((await call('signup','POST',{...form,username:'different.alias'})).data.requestSubmitted,undefined);assert.equal((await call('request-summary')).data.pending,0);
 // An existing real identity must retain its original role, alias and request.
 signupUser=users.fresh;assert.equal((await call('signup','POST',{...form,username:'changed.alias',requestedRole:'physician'})).data.status,'check_account');assert.equal(pushes,1);assert.equal((await DB.prepare('SELECT requested_role FROM access_accounts WHERE id=?').bind(fresh).first()).requested_role,'nurse');
 // Older signups recover their original metadata on authenticated sign-in, once.
-assert.equal((await call('signin','POST',{login:'legacy@example.test',password:'irrelevant'})).status,200);assert.equal((await call('session','GET',null,'legacy')).data.status,'pending');assert.equal(pushes,2);
+assert.equal((await call('signin','POST',{login:'legacy@example.test',password:'irrelevant'})).status,200);assert.equal((await call('session','GET',null,'legacy')).data.status,'approved');assert.equal(pushes,2);
 await call('signin','POST',{login:'legacy@example.test',password:'irrelevant'});assert.equal(pushes,2);
 // Auth creation followed by failed D1 persistence gives an honest error, then sign-in repairs it.
 signupUser=users.repair;let fail=true;env.DB={...DB,batch:async statements=>{if(fail){fail=false;throw Error('test persistence outage')}return DB.batch(statements)}};
 assert.equal((await call('signup','POST',{...form,email:'repair@example.test',username:'repair.nurse'})).status,503);
-assert.equal((await call('signin','POST',{login:'repair@example.test',password:'irrelevant'})).status,200);assert.equal((await call('session','GET',null,'repair')).data.status,'pending');assert.equal(pushes,3);
+assert.equal((await call('signin','POST',{login:'repair@example.test',password:'irrelevant'})).status,200);assert.equal((await call('session','GET',null,'repair')).data.status,'approved');assert.equal(pushes,3);
 const pending=(await call('request-summary')).data.pending;
-const reviewed=await call('review','POST',{id:fresh,revision:1,status:'approved',role:'patient',reason:'Synthetic test identity reviewed'});assert.equal(reviewed.status,200);assert.equal((await call('request-summary')).data.pending,pending-1);
-console.log('PASS: single-form signup immediately queues approval before email verification; owner-only counter and push; no session/privilege grant; duplicate/obfuscated identity protection; legacy recovery and persistence-failure repair');
+const reviewed=await call('review','POST',{id:fresh,revision:2,status:'approved',role:'patient',reason:'Synthetic test identity reviewed'});assert.equal(reviewed.status,200);assert.equal((await call('request-summary')).data.pending,pending);
+console.log('PASS: signup activates an allowlisted training role without admin approval; owner-only registry and push; email verification, duplicate protection, recovery and persistence-failure repair');
 })().catch(e=>{console.error(e);process.exit(1)});

@@ -1,3 +1,4 @@
+import {deliverEncounterAlerts} from './encounter-alerts.mjs';
 import {dynamicApi,createProtocol} from './dynamic.mjs';
 import '../dist/action-core.js';
 import '../dist/intake-core.js';
@@ -43,7 +44,7 @@ export async function teamApi(request,env){
  }
  const team=u.searchParams.get('workspace');if(!team)return teamJSON({error:'Select a workspace.'},400);
  const membership=await db.prepare('SELECT * FROM team_members WHERE team_id=? AND user_id=?').bind(team,user).first();if(!membership)return teamJSON({error:'Workspace membership required.'},403);
- if(['dynamic','protocol'].includes(route)&&request.method==='POST')return dynamicApi(request,{db,team,user,membership,route});
+ if(['dynamic','protocol'].includes(route)&&request.method==='POST')return dynamicApi(request,{db,team,user,membership,route,env});
  if(route==='protocol-create'&&request.method==='POST')return createProtocol(request,{db,team,user,membership});
  if(route==='workspace'&&request.method==='GET'){
   const [visits,events,members]=await Promise.all([db.prepare('SELECT * FROM team_visits WHERE team_id=? ORDER BY updated_at DESC LIMIT 100').bind(team).all(),db.prepare('SELECT e.*,m.label AS actor_label FROM team_events e LEFT JOIN team_members m ON m.team_id=e.team_id AND m.user_id=e.actor_id WHERE e.team_id=? ORDER BY e.at DESC LIMIT 150').bind(team).all(),db.prepare('SELECT label,role,joined_at FROM team_members WHERE team_id=? ORDER BY joined_at').bind(team).all()]);return teamJSON({membership:{role:membership.role,label:membership.label},visits:visits.results.map(v=>({...v,snapshot:JSON.parse(v.snapshot)})).filter(v=>v.snapshot.recordType!=='protocol'),protocols:visits.results.map(v=>({...v,snapshot:JSON.parse(v.snapshot)})).filter(v=>v.snapshot.recordType==='protocol'),events:events.results,members:members.results,serverTime:new Date().toISOString()});
@@ -82,7 +83,7 @@ export async function teamApi(request,env){
    if(r.action==='pharmacy_review'||r.action==='request_changes')snapshot.dynamic=FNDynamic.mutate(snapshot.dynamic,{action:'pharmacy_plan',operationKey:key+'-pharmacy',decision:r.action==='pharmacy_review'?'approve':'changes',note},actor,when);
    if(r.action==='record_dose')snapshot.dynamic=FNDynamic.mutate(snapshot.dynamic,{action:'record_dose',operationKey:key+'-dose',actualAt:r.administeredAt,regimen:r.regimen,note},actor,when);
   }
-  const next=rule.to,op=r.operationKey;const result=await db.batch([db.prepare('UPDATE team_visits SET stage=?,revision=revision+1,snapshot=?,last_operation=?,updated_at=? WHERE id=? AND team_id=? AND revision=? AND stage=?').bind(next,JSON.stringify(snapshot),op,now,visit.id,team,r.revision,rule.from),teamEvent(db,team,visit.id,user,membership.role,rule.role,r.action,note,now,op)]);if(!result[0].meta?.changes)return teamJSON({error:'Concurrent change detected. Refresh; nothing was overwritten.'},409);return teamJSON({ok:true,stage:next});
+  const next=rule.to,op=r.operationKey;const result=await db.batch([db.prepare('UPDATE team_visits SET stage=?,revision=revision+1,snapshot=?,last_operation=?,updated_at=? WHERE id=? AND team_id=? AND revision=? AND stage=?').bind(next,JSON.stringify(snapshot),op,now,visit.id,team,r.revision,rule.from),teamEvent(db,team,visit.id,user,membership.role,rule.role,r.action,note,now,op)]);if(!result[0].meta?.changes)return teamJSON({error:'Concurrent change detected. Refresh; nothing was overwritten.'},409);const delivery=await deliverEncounterAlerts(env,{db,team,user,visitId:visit.id,operationKey:op,before:JSON.parse(visit.snapshot).dynamic,after:snapshot.dynamic});return teamJSON({ok:true,stage:next,delivery});
  }
  return teamJSON({error:'Unknown endpoint.'},404);
  }catch{return teamJSON({error:'Request could not be completed. Refresh to check server state before retrying.'},400)}
